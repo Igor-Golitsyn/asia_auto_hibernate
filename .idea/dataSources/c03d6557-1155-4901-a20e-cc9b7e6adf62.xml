@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Data Source driver - 111@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="111">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="etalon"/>
+    <schema id="3" name="information_schema"/>
+    <schema id="4" name="izum"/>
+    <schema id="5" name="mysql"/>
+    <schema id="6" name="performance_schema"/>
+    <schema id="7" name="sakila"/>
+    <schema id="8" name="sys"/>
+    <schema id="9" name="test"/>
+    <schema id="10" name="world"/>
+  </database-model>
+</dataSource>
