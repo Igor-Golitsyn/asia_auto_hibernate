@@ -1,4 +1,4 @@
-package data;
+package com.asia_auto.dao;
 
 /**
  * Created by Игорь on 28.09.2016.

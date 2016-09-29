@@ -1,4 +1,4 @@
-package data.elements;
+package com.asia_auto.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -7,6 +7,7 @@ import java.io.Serializable;
  * Created by Игорь on 12.08.2016.
  */
 @Entity
+@NamedQuery(name = "MasterElement.getAll", query = "SELECT c from MasterElement c")
 public class MasterElement implements Element, Serializable {
     @Id
     @GeneratedValue

@@ -10,9 +10,9 @@
         <property name="connection.password">1234</property>
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->
-        <mapping class="data.elements.ClientElement"/>
-        <mapping class="data.elements.MasterElement"/>
-        <mapping class="data.elements.MainElement"/>
-        <mapping class="data.elements.TimeElement"/>
+        <mapping class="com.asia_auto.entity.ClientElement"/>
+        <mapping class="com.asia_auto.entity.MasterElement"/>
+        <mapping class="com.asia_auto.entity.MainElement"/>
+        <mapping class="com.asia_auto.entity.TimeElement"/>
     </session-factory>
 </hibernate-configuration>

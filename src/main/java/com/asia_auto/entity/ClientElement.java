@@ -1,14 +1,16 @@
-package data.elements;
+package com.asia_auto.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import java.io.Serializable;
 
 /**
  * Created by Игорь on 15.08.2016.
  */
 @Entity
+@NamedQuery(name = "ClientElement.getAll", query = "SELECT c from ClientElement c")
 public class ClientElement implements Element, Serializable {
     @Id
     @GeneratedValue

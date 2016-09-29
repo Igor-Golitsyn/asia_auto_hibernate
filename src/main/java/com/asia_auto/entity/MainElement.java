@@ -1,4 +1,4 @@
-package data.elements;
+package com.asia_auto.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,11 +8,37 @@ import java.sql.Date;
  * Created by Игорь on 15.08.2016.
  */
 @Entity
+@NamedQuery(name = "MainElement.getAll", query = "SELECT c from MainElement c")
 public class MainElement implements Element, Serializable {
     @Id
     @GeneratedValue
     private long id;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        MainElement that = (MainElement) o;
+
+        if (time != null ? !time.equals(that.time) : that.time != null) return false;
+        if (client != null ? !client.equals(that.client) : that.client != null) return false;
+        if (master != null ? !master.equals(that.master) : that.master != null) return false;
+        return date != null ? date.equals(that.date) : that.date == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = time != null ? time.hashCode() : 0;
+        result = 31 * result + (client != null ? client.hashCode() : 0);
+        result = 31 * result + (master != null ? master.hashCode() : 0);
+        result = 31 * result + (date != null ? date.hashCode() : 0);
+        return result;
+    }
+
     @ManyToOne(cascade = CascadeType.ALL)
+
     private TimeElement time;
     @OneToOne(cascade = CascadeType.ALL)
     private ClientElement client;

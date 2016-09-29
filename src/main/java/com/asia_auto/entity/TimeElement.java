@@ -1,8 +1,9 @@
-package data.elements;
+package com.asia_auto.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import java.io.Serializable;
 import java.sql.Time;
 
@@ -10,6 +11,7 @@ import java.sql.Time;
  * Created by Игорь on 12.08.2016.
  */
 @Entity
+@NamedQuery(name = "TimeElement.getAll", query = "SELECT c from TimeElement c")
 public class TimeElement implements Element, Serializable {
     @Id
     @GeneratedValue
