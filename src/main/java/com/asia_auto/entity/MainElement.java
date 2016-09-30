@@ -13,6 +13,13 @@ public class MainElement implements Element, Serializable {
     @Id
     @GeneratedValue
     private long id;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private TimeElement time;
+    @OneToOne(cascade = CascadeType.ALL)
+    private ClientElement client;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private MasterElement master;
+    private Date date;
 
     @Override
     public boolean equals(Object o) {
@@ -37,14 +44,6 @@ public class MainElement implements Element, Serializable {
         return result;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
-
-    private TimeElement time;
-    @OneToOne(cascade = CascadeType.ALL)
-    private ClientElement client;
-    @ManyToOne(cascade = CascadeType.ALL)
-    private MasterElement master;
-    private Date date;
 
     public MainElement() {
     }
