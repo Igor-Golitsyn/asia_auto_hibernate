@@ -94,13 +94,10 @@ public class MasterElement implements Element, Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         MasterElement that = (MasterElement) o;
-
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (secondName != null ? !secondName.equals(that.secondName) : that.secondName != null) return false;
         return family != null ? family.equals(that.family) : that.family == null;
-
     }
 
     @Override
