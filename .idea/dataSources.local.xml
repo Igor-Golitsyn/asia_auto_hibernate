@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Data Source driver - 111@localhost" uuid="c03d6557-1155-4901-a20e-cc9b7e6adf62">
+      <database-info product="MySQL" version="5.7.14-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.25 ( Revision: ${bzr.revision-id} )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>admin</user-name>
+      <introspection-scope>111:</introspection-scope>
+      <resolve-scope>111:</resolve-scope>
+    </data-source>
+  </component>
+</project>
