@@ -27,6 +27,8 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="hibern" target="1.8" />
+      <module name="hibern_main" target="1.8" />
+      <module name="hibern_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

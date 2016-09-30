@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/hibern.iml" filepath="$PROJECT_DIR$/hibern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hibern.iml" filepath="$PROJECT_DIR$/.idea/modules/hibern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hibern_main.iml" filepath="$PROJECT_DIR$/.idea/modules/hibern_main.iml" group="hibern" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hibern_test.iml" filepath="$PROJECT_DIR$/.idea/modules/hibern_test.iml" group="hibern" />
     </modules>
   </component>
 </project>

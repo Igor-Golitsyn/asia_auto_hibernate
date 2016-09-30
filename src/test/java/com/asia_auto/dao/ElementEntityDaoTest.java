@@ -1,4 +1,5 @@
-import com.asia_auto.dao.ElementEntityDao;
+package com.asia_auto.dao;
+
 import com.asia_auto.entity.*;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -14,9 +15,9 @@ import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * Created by Игорь on 29.09.2016.
+ * Created by Игорь on 30.09.2016.
  */
-public class TestDao {
+public class ElementEntityDaoTest {
     ElementEntityDao entityDao = ElementEntityDao.getInstance();
     private CopyOnWriteArraySet<Element> set = new CopyOnWriteArraySet<>();
     private TimeElement timeElement;
