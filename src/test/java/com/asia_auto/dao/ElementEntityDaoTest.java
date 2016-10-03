@@ -7,8 +7,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.concurrent.CopyOnWriteArraySet;
@@ -29,7 +27,7 @@ public class ElementEntityDaoTest {
 
     @Test(threadPoolSize = 100, invocationCount = 100, priority = 1)
     public void daoWrite() throws IOException {
-        MasterElement masterElement = new MasterElement(getRandomString(), getRandomString(), getRandomString(), "1", Files.readAllBytes(Paths.get("c:\\temp\\6.jpg")));
+        MasterElement masterElement = new MasterElement(getRandomString(), getRandomString(), getRandomString(), "1", null);
         ClientElement clientElement = new ClientElement(getRandomString(), getRandomString(), getRandomString(), null, null, null, null, null, null, null);
         MainElement mainElement = new MainElement(timeElement, clientElement, masterElement, new Date(0));
         MainElement mainElemTest = entityDao.writeElement(mainElement);

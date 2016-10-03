@@ -17,7 +17,6 @@ dependencies {
     compile group: 'mysql', name: 'mysql-connector-java', version:'5.1.25'
     compile group: 'org.hibernate', name: 'hibernate-entitymanager', version:'4.2.1.Final'
     compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.0-api', version:'1.0.1.Final'
-    compile 'org.hibernate:hibernate-core:5.2.2.Final'
     testCompile group: 'org.testng', name: 'testng', version:'6.9.13.6'
 }
 test{
