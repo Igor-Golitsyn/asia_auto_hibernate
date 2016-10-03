@@ -1,13 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b158c876-56d8-46a2-b862-0f8c4b1031fb" name="Default" comment="hibernate">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hibernate_common_hibernate_commons_annotations_4_0_1_Final.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hibernate_hibernate_core_4_2_1_Final.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_javassist_javassist_3_15_0_GA.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jboss_logging_jboss_logging_3_1_0_GA.xml" />
+    <list default="true" id="b158c876-56d8-46a2-b862-0f8c4b1031fb" name="Default" comment="hibernate+server">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/resources/1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jfoenix_jfoenix_1_0_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__de_jensd_fontawesomefx_8_0_10.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_datafx_core_8_0b8.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_datafx_datafx_8_0b8.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_datafx_flow_8_0b8.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/asia_auto/data/Connection.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/asia_auto/data/Message.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/asia_auto/data/MessageType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/asia_auto/server/Server.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/asia_auto/server/ServerGui.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/asia_auto/server/datafx/AnimatedFlowContainer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/asia_auto/server/gui/main/ServerMainController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/asia_auto/server/gui/uicomponents/ServerViewController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/resources/css/jfoenix-client.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/resources/css/jfoenix-components.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/resources/fonts/icomoon.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/resources/fxml/Main.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/resources/fxml/ServerMainController.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/resources/fxml/SideMenu.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/resources/fxml/ui/MainTableView.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/resources/fxml/ui/MastersView.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/resources/fxml/ui/ServerView.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/resources/fxml/ui/SettingsView.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/asia_auto/server/ServerTest.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/asia_auto/dao/ElementEntityDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/asia_auto/entity/ClientElement.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/asia_auto/entity/Element.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/asia_auto/entity/MainElement.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/asia_auto/entity/MasterElement.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/asia_auto/entity/TimeElement.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/test/com/asia_auto/dao/ElementEntityDaoTest.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/asia_auto/dao/ElementEntityDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/asia_auto/data/dao/ElementEntityDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/asia_auto/entity/ClientElement.java" afterPath="$PROJECT_DIR$/src/main/java/com/asia_auto/data/entity/ClientElement.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/asia_auto/entity/Element.java" afterPath="$PROJECT_DIR$/src/main/java/com/asia_auto/data/entity/Element.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/asia_auto/entity/MainElement.java" afterPath="$PROJECT_DIR$/src/main/java/com/asia_auto/data/entity/MainElement.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/asia_auto/entity/MasterElement.java" afterPath="$PROJECT_DIR$/src/main/java/com/asia_auto/data/entity/MasterElement.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/asia_auto/entity/TimeElement.java" afterPath="$PROJECT_DIR$/src/main/java/com/asia_auto/data/entity/TimeElement.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/asia_auto/dao/ElementEntityDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/asia_auto/data/dao/ElementEntityDaoTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/c03d6557-1155-4901-a20e-cc9b7e6adf62.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/c03d6557-1155-4901-a20e-cc9b7e6adf62.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/hibern_main.iml" afterPath="$PROJECT_DIR$/.idea/modules/hibern_main.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/hibern_test.iml" afterPath="$PROJECT_DIR$/.idea/modules/hibern_test.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/build/resources/main/META-INF/persistence.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/build/resources/main/hibernate.cfg.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/hibern/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/out/production/hibern/META-INF/persistence.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/hibern/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/out/production/hibern/hibernate.cfg.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
     </list>
     <ignored path="hibern.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,6 +77,16 @@
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="Data Source driver - 111@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="ExternalProjectsData">
@@ -57,14 +111,76 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ElementEntityDaoTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/asia_auto/dao/ElementEntityDaoTest.java">
+      <file leaf-file-name="ElementEntityDaoTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/asia_auto/data/dao/ElementEntityDaoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+            <state relative-caret-position="483">
+              <caret line="29" column="67" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ElementEntityDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/asia_auto/data/dao/ElementEntityDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="777">
+              <caret line="70" column="45" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/asia_auto/server/ServerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="504">
+              <caret line="82" column="43" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1016#1017#0" expanded="true" />
+                <element signature="e#1076#1077#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/asia_auto/server/Server.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="279">
+              <caret line="126" column="24" selection-start-line="126" selection-start-column="24" selection-end-line="126" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2352#2353#0" expanded="true" />
+                <element signature="e#2396#2397#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Message.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/asia_auto/data/Message.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -262,7 +378,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="2950932978160" />
+        <entry key="$PROJECT_DIR$" value="2950952623972" />
         <entry key="$PROJECT_DIR$/../test" value="2949741745773" />
         <entry key="$USER_HOME$/Desktop/JFoenix-master" value="5886024716000" />
       </map>
@@ -452,9 +568,25 @@
         <option value="$PROJECT_DIR$/src/test/java/daoTest/EntityTestDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/asia_auto/Testeee.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/asia_auto/dao/ElementEntityDao.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/asia_auto/dao/ElementEntityDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/asia_auto/server/tables/Manager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/asia_auto/server/datafx/AnimatedFlowContainer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/asia_auto/data/Connection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/asia_auto/data/entity/TimeElement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/asia_auto/data/entity/MainElement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/asia_auto/data/Message.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/asia_auto/data/dao/ElementEntityDao.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/resources/fxml/ui/ServerView.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/asia_auto/server/gui/uicomponents/ServerViewController.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/resources/resources/fxml/ServerMainController.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/asia_auto/server/ServerGui.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/asia_auto/server/gui/main/ServerMainController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/asia_auto/data/MessageType.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/asia_auto/data/dao/ElementEntityDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/asia_auto/server/Server.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/asia_auto/server/ServerTest.java" />
       </list>
     </option>
   </component>
@@ -539,6 +671,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -597,6 +732,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="asia_auto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hibern" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asia_auto_hibernate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asia_auto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="dao" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -644,6 +813,10 @@
               <option name="myItemId" value="asia_auto" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -668,6 +841,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="asia_auto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hibern" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asia_auto_hibernate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asia_auto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -677,9 +884,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -687,46 +891,33 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.side.proportion" value="0.26133552" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../asia_auto" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="Data Source driver" />
     <property name="JPA.DatabaseSchemaImportDialog" value="c03d6557-1155-4901-a20e-cc9b7e6adf62" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="data" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.asia_auto.dao" />
-      <recent name="com.asia_auto.entity" />
-      <recent name="com.asia_auto" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="daoTest" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.asia_auto.server" />
+      <recent name="com.asia_auto" />
+      <recent name="com.asia_auto.data" />
+      <recent name="com.asia_auto.dao" />
+      <recent name="com.asia_auto.entity" />
     </key>
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="data.elements" />
       <recent name="" />
     </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="data" />
+    </key>
   </component>
-  <component name="RunManager" selected="TestNG.ElementEntityDaoTest">
-    <configuration default="false" name="ElementEntityDao" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="com.asia_auto.dao.ElementEntityDao" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="hibern" />
-      <envs />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="TestNG.ServerTest">
     <configuration default="false" name="TestDao" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="hibern" />
@@ -758,7 +949,7 @@
     <configuration default="false" name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.asia_auto.dao.*" />
+          <option name="PATTERN" value="com.asia_auto.server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -778,7 +969,7 @@
     <configuration default="false" name="ElementEntityDaoTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.asia_auto.dao.*" />
+          <option name="PATTERN" value="com.asia_auto.server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -787,7 +978,60 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SUITE_NAME" />
       <option name="PACKAGE_NAME" value="com.asia_auto.dao" />
-      <option name="MAIN_CLASS_NAME" value="com.asia_auto.dao.ElementEntityDaoTest" />
+      <option name="MAIN_CLASS_NAME" value="com.asia_auto.data.dao.ElementEntityDaoTest" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="false" name="ServerGui" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.asia_auto.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.asia_auto.server.ServerGui" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="hibern_main" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ServerTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.asia_auto.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="hibern_test" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="com.asia_auto.server" />
+      <option name="MAIN_CLASS_NAME" value="com.asia_auto.server.ServerTest" />
       <option name="METHOD_NAME" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="CLASS" />
@@ -1222,18 +1466,20 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Application.ElementEntityDao" />
-      <item index="1" class="java.lang.String" itemvalue="TestNG.TestDao" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Test" />
-      <item index="3" class="java.lang.String" itemvalue="TestNG.ElementEntityDaoTest" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="TestNG.TestDao" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Test" />
+      <item index="2" class="java.lang.String" itemvalue="TestNG.ElementEntityDaoTest" />
+      <item index="3" class="java.lang.String" itemvalue="Application.ServerGui" />
+      <item index="4" class="java.lang.String" itemvalue="TestNG.ServerTest" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="TestNG.ElementEntityDaoTest" />
-        <item index="1" class="java.lang.String" itemvalue="TestNG.TestDao" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Test" />
-        <item index="3" class="java.lang.String" itemvalue="Application.ElementEntityDao" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="TestNG.ServerTest" />
+        <item index="1" class="java.lang.String" itemvalue="TestNG.ElementEntityDaoTest" />
+        <item index="2" class="java.lang.String" itemvalue="Application.ServerGui" />
+        <item index="3" class="java.lang.String" itemvalue="TestNG.TestDao" />
+        <item index="4" class="java.lang.String" itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -1262,7 +1508,9 @@
       <workItem from="1475216507274" duration="81000" />
       <workItem from="1475216750083" duration="668000" />
       <workItem from="1475222519222" duration="866000" />
-      <workItem from="1475466486216" duration="1624000" />
+      <workItem from="1475466486216" duration="1641000" />
+      <workItem from="1475468370333" duration="12832000" />
+      <workItem from="1475485032648" duration="8018000" />
     </task>
     <task id="LOCAL-00001" summary="hibernate">
       <created>1475131842339</created>
@@ -1320,43 +1568,50 @@
       <option name="project" value="LOCAL" />
       <updated>1475468088741</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="hibernate">
+      <created>1475468116960</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1475468116960</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ElementEntityDaoTest - 2016.10.03 at 08h 48m 46s.xml">
+    <history-entry file="ElementEntityDaoTest - 2016.10.03 at 15h 48m 14s.xml">
       <configuration name="ElementEntityDaoTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="ElementEntityDaoTest - 2016.10.03 at 08h 49m 22s.xml">
-      <configuration name="ElementEntityDaoTest" configurationId="TestNG" />
+    <history-entry file="ServerTest - 2016.10.03 at 15h 47m 41s.xml">
+      <configuration name="ServerTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="ElementEntityDaoTest - 2016.10.03 at 08h 52m 12s.xml">
-      <configuration name="ElementEntityDaoTest" configurationId="TestNG" />
+    <history-entry file="ServerTest - 2016.10.03 at 15h 49m 16s.xml">
+      <configuration name="ServerTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="ElementEntityDaoTest - 2016.10.03 at 09h 06m 00s.xml">
-      <configuration name="ElementEntityDaoTest" configurationId="TestNG" />
+    <history-entry file="ServerTest - 2016.10.03 at 15h 53m 44s.xml">
+      <configuration name="ServerTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="ElementEntityDaoTest - 2016.10.03 at 09h 07m 21s.xml">
-      <configuration name="ElementEntityDaoTest" configurationId="TestNG" />
+    <history-entry file="ServerTest - 2016.10.03 at 15h 54m 10s.xml">
+      <configuration name="ServerTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="ElementEntityDaoTest - 2016.10.03 at 09h 14m 28s.xml">
-      <configuration name="ElementEntityDaoTest" configurationId="TestNG" />
+    <history-entry file="ServerTest - 2016.10.03 at 15h 54m 49s.xml">
+      <configuration name="ServerTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TestDao - 2016.09.30 at 09h 24m 32s.xml">
-      <configuration name="TestDao" configurationId="TestNG" />
+    <history-entry file="ServerTest - 2016.10.03 at 15h 59m 12s.xml">
+      <configuration name="ServerTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TestDao - 2016.09.30 at 09h 25m 30s.xml">
-      <configuration name="TestDao" configurationId="TestNG" />
+    <history-entry file="ServerTest - 2016.10.03 at 16h 00m 10s.xml">
+      <configuration name="ServerTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TestDao - 2016.09.30 at 09h 26m 02s.xml">
-      <configuration name="TestDao" configurationId="TestNG" />
+    <history-entry file="ServerTest - 2016.10.03 at 16h 01m 40s.xml">
+      <configuration name="ServerTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TestDao - 2016.09.30 at 09h 32m 48s.xml">
-      <configuration name="TestDao" configurationId="TestNG" />
+    <history-entry file="ServerTest - 2016.10.03 at 16h 08m 52s.xml">
+      <configuration name="ServerTest" configurationId="TestNG" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63214000" />
+    <option name="totallyTimeSpent" value="84081000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1370,17 +1625,17 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23880596" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30211818" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2664437" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16471216" sideWeight="0.40245262" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16471216" sideWeight="0.59754735" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16471216" sideWeight="0.5863991" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16471216" sideWeight="0.40245262" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.090618335" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12846482" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16791044" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16471216" sideWeight="0.40245262" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16471216" sideWeight="0.4136009" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39910814" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1429,7 +1684,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1438,104 +1693,255 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.timeelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.clientelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.clientelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.clientelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.mainelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.mainelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.mainelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.masterelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.masterelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.masterelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.timeelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.timeelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.timeelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.masterelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.masterelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.mainelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.mainelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.clientelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.clientelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.timeelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.timeelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.timeelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.timeelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.timeelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.timeelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.timeelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.timeelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.timeelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.clientelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.clientelement" />
-    <entry file="dbDummy://dbtable:/e4a8c535/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.clientelement" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/asia_auto/entity/MasterElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1407">
-          <caret line="92" column="13" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="13" />
-        </state>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/resources/fxml/SideMenu.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/asia_auto/entity/TimeElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/asia_auto/dao/HibernateUtil.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/asia_auto/entity/MainElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-799">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/asia_auto/entity/ClientElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-966">
-          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TestDao.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/EntityDaoTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/asia_auto/Testtt.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/daoTest/ElementEntityDao.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/daoTest/EntityTestDao.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/asia_auto/Testeee.java" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/resources/fxml/ServerMainController.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/asia_auto/server/gui/main/ServerMainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/asia_auto/server/gui/uicomponents/ServerViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1176">
+          <caret line="56" column="26" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/asia_auto/server/datafx/AnimatedFlowContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-756">
+          <caret line="0" column="28" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/asia_auto/server/ServerGui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="33" column="58" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/asia_auto/data/entity/MainElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/asia_auto/data/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/asia_auto/data/dao/ElementEntityDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="777">
+          <caret line="70" column="45" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/asia_auto/data/MessageType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/asia_auto/server/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="126" column="24" selection-start-line="126" selection-start-column="24" selection-end-line="126" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2352#2353#0" expanded="true" />
+            <element signature="e#2396#2397#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+        <state relative-caret-position="378">
+          <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/asia_auto/dao/ElementEntityDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1029">
-          <caret line="62" column="51" selection-start-line="62" selection-start-column="51" selection-end-line="62" selection-end-column="51" />
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.timeelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.timeelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.timeelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.mainelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.mainelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.mainelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.clientelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.clientelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.clientelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.masterelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.masterelement">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -1574,6 +1980,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.timeelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.mainelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.clientelement">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1587,12 +2019,292 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/asia_auto/dao/ElementEntityDaoTest.java">
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.masterelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.timeelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/asia_auto/data/dao/ElementEntityDaoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+        <state relative-caret-position="483">
+          <caret line="29" column="67" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.clientelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.clientelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.clientelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.mainelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.mainelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.mainelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.masterelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.masterelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.masterelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.timeelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.timeelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.timeelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.masterelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.masterelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.mainelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.mainelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.clientelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/732fb902/c03d6557-1155-4901-a20e-cc9b7e6adf62/111.clientelement">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/asia_auto/data/Connection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/asia_auto/server/ServerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="82" column="43" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1016#1017#0" expanded="true" />
+            <element signature="e#1076#1077#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1649,11 +2361,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>hibern_main|hibern</last-edited>
+          <last-edited>hibern_test|hibern</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.26133552" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -1673,11 +2386,11 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Gradle: antlr:antlr:2.7.7</last-edited>
+          <last-edited>Gradle: com.jfoenix:jfoenix:1.0.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.26133552" />
               </list>
             </option>
           </splitter-proportions>
