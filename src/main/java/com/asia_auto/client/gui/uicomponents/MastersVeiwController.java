@@ -133,10 +133,7 @@ public class MastersVeiwController implements Observer {
             String secName = secondName.getText();
             String smen = smena.getText();
             byte[] fot = new byte[0];
-            try {
-                fot = Files.readAllBytes(Paths.get(fotoText.getText()));
-            } catch (IOException e) {
-            }
+            fot = imageLoad(fotoText.getText());
             MasterElement master = new MasterElement(nam, secName, famil, smen, fot);
             TreeMap<Long, Element> map = new TreeMap<>();
             map.put(master.getId(), master);
@@ -230,8 +227,9 @@ public class MastersVeiwController implements Observer {
     private byte[] imageLoad(String text) {
         logger.log(Level.INFO, "imageLoad");
         byte[] image = null;
-        File file = new File("src/main/resources/resources/1.jpg");
+        File file = new File("src\\main\\resources\\resources\\1.jpg");
         try {
+            System.out.println(file.getCanonicalPath() + " " + file.isFile());
             if (text == null || text.isEmpty()) text = file.getCanonicalPath();
             image = Files.readAllBytes(Paths.get(text));
         } catch (IOException e) {
@@ -298,7 +296,7 @@ public class MastersVeiwController implements Observer {
         listView.setGroupnode(new Label("Смена " + smena));
         ObservableList items = listView.getItems();
         for (Element m : masters) {
-            MasterElement master= (MasterElement) m;
+            MasterElement master = (MasterElement) m;
             if (master.getSmena().equals(smena)) {
                 Image imageUtil = null;
                 try {

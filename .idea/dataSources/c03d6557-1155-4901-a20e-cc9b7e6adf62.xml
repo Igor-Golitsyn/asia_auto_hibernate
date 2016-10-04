@@ -73,35 +73,35 @@
     <column id="31" parent="12" name="time_id">
       <data-type>bigint(20)|0</data-type>
     </column>
-    <index id="32" parent="12" name="FK_39c6368123354597a63d8139b59">
+    <index id="32" parent="12" name="FK_2a1e042696e449a2837c45f5197">
+      <columns>client_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="33" parent="12" name="FK_d6b0e89a942b4d0aa81ed48397c">
       <columns>time_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="33" parent="12" name="FK_c27cf6c39b73463b9b467a0020b">
+    <index id="34" parent="12" name="FK_e1dc83588f1d4e76ace3838ab54">
       <columns>master_id</columns>
-      <desc-columns></desc-columns>
-    </index>
-    <index id="34" parent="12" name="FK_d64cbc9c35e846b281ffae98985">
-      <columns>client_id</columns>
       <desc-columns></desc-columns>
     </index>
     <key id="35" parent="12" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="36" parent="12" name="FK_d64cbc9c35e846b281ffae98985">
+    <foreign-key id="36" parent="12" name="FK_2a1e042696e449a2837c45f5197">
       <columns>client_id</columns>
       <ref-key>~.clientelement.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="37" parent="12" name="FK_c27cf6c39b73463b9b467a0020b">
+    <foreign-key id="37" parent="12" name="FK_e1dc83588f1d4e76ace3838ab54">
       <columns>master_id</columns>
       <ref-key>~.masterelement.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="38" parent="12" name="FK_39c6368123354597a63d8139b59">
+    <foreign-key id="38" parent="12" name="FK_d6b0e89a942b4d0aa81ed48397c">
       <columns>time_id</columns>
       <ref-key>~.timeelement.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>

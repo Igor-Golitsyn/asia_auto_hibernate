@@ -29,8 +29,7 @@ public class Connector extends Observable implements Runnable {
             setChanged();
             notifyObservers(message);
         } catch (Exception e) {
-            e.printStackTrace();
-            logger.log(Level.WARNING, e.getMessage());
+            logger.log(Level.WARNING, e.toString());
         }
     }
 }

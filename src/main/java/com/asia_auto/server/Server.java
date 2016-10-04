@@ -133,7 +133,7 @@ public class Server {
                     map.put(nElem.getId(), nElem);
                 } else {
                     type = MessageType.ERROR;
-                    map=null;
+                    map = null;
                     break;
                 }
             }
@@ -152,6 +152,7 @@ public class Server {
         private Message createMessageForDate(MessageType forResponse, Date date) {
             TreeMap<Long, Element> map = new TreeMap<>();
             List<MainElement> mainList = entityDao.getMainForDate(date);
+            List<TimeElement> timeList = entityDao.getAllElements(TimeElement.class);
             switch (forResponse) {
                 case MAIN_FOR_DATE:
                     for (MainElement mainElement : mainList) {
@@ -159,13 +160,14 @@ public class Server {
                     }
                     break;
                 case TIMES_FOR_DATE:  // лимит одновременных клиентов
-                    for (MainElement mainElement : mainList) {
-                        if (map.containsKey(mainElement.getTime().getId())) {
-                            map.remove(mainElement.getTime().getId());
-                        } else {
-                            map.put(mainElement.getTime().getId(), mainElement.getTime());
+                    for (TimeElement timeElement : timeList) {
+                        int count = 0;
+                        if (mainList != null && mainList.size() != 0) {
+                            for (MainElement mainElement : mainList) {
+                                if (timeElement.equals(mainElement.getTime())) count++;
+                            }
                         }
-                        break;
+                        if (count < 2) map.put(timeElement.getId(), timeElement);
                     }
             }
             return new Message(forResponse, map, date, null);

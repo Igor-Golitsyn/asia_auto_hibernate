@@ -57,14 +57,14 @@ public class TimeElement implements Element, Serializable {
 
         TimeElement that = (TimeElement) o;
 
-        if (time != null ? !time.equals(that.time) : that.time != null) return false;
+        if (!time.equals(that.time)) return false;
         return comment != null ? comment.equals(that.comment) : that.comment == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = time != null ? time.hashCode() : 0;
+        int result = time.hashCode();
         result = 31 * result + (comment != null ? comment.hashCode() : 0);
         return result;
     }
