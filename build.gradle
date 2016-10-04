@@ -21,6 +21,7 @@ dependencies {
     compile 'io.datafx:datafx:8.0b8'
     compile 'io.datafx:flow:8.0b8'
     compile 'de.jensd:fontawesomefx:8.0.10'
+    compile 'com.mortennobel:java-image-scaling:0.8.6'
     testCompile group: 'org.testng', name: 'testng', version:'6.9.13.6'
 }
 test{
