@@ -108,8 +108,6 @@ public class Server {
                     }
                 }
             } catch (Exception e) {
-                e.printStackTrace();
-                logger.log(Level.WARNING, e.toString());
             }
         }
 

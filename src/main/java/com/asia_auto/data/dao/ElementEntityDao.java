@@ -17,13 +17,17 @@ import java.util.logging.Logger;
 public class ElementEntityDao {
     Logger logger = Logger.getLogger(ElementEntityDao.class.getName());
     private EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
-    private static ElementEntityDao ourInstance = new ElementEntityDao();
+    private static ElementEntityDao ourInstance;
 
     private ElementEntityDao() {
     }
 
+    private static class SingletonHelper {
+        private static final ElementEntityDao INSTANCE = new ElementEntityDao();
+    }
+
     public static ElementEntityDao getInstance() {
-        return ourInstance;
+        return SingletonHelper.INSTANCE;
     }
 
     public synchronized <T> T getElementById(Class<T> clazz, long id) {
