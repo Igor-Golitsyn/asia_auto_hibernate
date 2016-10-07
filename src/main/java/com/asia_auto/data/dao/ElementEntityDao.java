@@ -17,7 +17,6 @@ import java.util.logging.Logger;
 public class ElementEntityDao {
     Logger logger = Logger.getLogger(ElementEntityDao.class.getName());
     private EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
-    private static ElementEntityDao ourInstance;
 
     private ElementEntityDao() {
     }
