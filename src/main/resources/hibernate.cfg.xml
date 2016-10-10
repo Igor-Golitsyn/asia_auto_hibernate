@@ -12,7 +12,7 @@
         <!-- <property name="hbm2ddl.auto">update</property> -->
         <mapping class="com.asia_auto.data.entity.ClientElement"/>
         <mapping class="com.asia_auto.data.entity.MasterElement"/>
-        <mapping class="com.asia_auto.data.entity.Appointment"/>
+        <mapping class="com.asia_auto.data.entity.MainElement"/>
         <mapping class="com.asia_auto.data.entity.TimeElement"/>
     </session-factory>
 </hibernate-configuration>

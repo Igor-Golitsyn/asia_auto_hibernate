@@ -149,20 +149,20 @@ public class Server {
 
         private Message createMessageForDate(MessageType forResponse, Date date) {
             TreeMap<Long, Element> map = new TreeMap<>();
-            List<Appointment> mainList = entityDao.getMainForDate(date);
+            List<MainElement> mainList = entityDao.getMainForDate(date);
             List<TimeElement> timeList = entityDao.getAllElements(TimeElement.class);
             switch (forResponse) {
                 case MAIN_FOR_DATE:
-                    for (Appointment appointment : mainList) {
-                        map.put(appointment.getId(), appointment);
+                    for (MainElement mainElement : mainList) {
+                        map.put(mainElement.getId(), mainElement);
                     }
                     break;
                 case TIMES_FOR_DATE:  // лимит одновременных клиентов
                     for (TimeElement timeElement : timeList) {
                         int count = 0;
                         if (mainList != null && mainList.size() != 0) {
-                            for (Appointment appointment : mainList) {
-                                if (timeElement.equals(appointment.getTime())) count++;
+                            for (MainElement mainElement : mainList) {
+                                if (timeElement.equals(mainElement.getTime())) count++;
                             }
                         }
                         if (count < 2) map.put(timeElement.getId(), timeElement);

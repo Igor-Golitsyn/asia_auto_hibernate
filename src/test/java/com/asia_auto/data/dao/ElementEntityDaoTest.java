@@ -31,16 +31,10 @@ public class ElementEntityDaoTest {
     public void daoWrite() throws IOException {
         MasterElement masterElement = new MasterElement(getRandomString(), getRandomString(), getRandomString(), "1", null);
         ClientElement clientElement = new ClientElement(getRandomString(), getRandomString(), getRandomString(), null, null, null, null, null, null, null);
-        Appointment appointment = new Appointment(timeElement, clientElement, masterElement, date);
-        Appointment mainElemTest = entityDao.writeElement(appointment);
-        Assert.assertTrue(appointment.equals(mainElemTest));
+        MainElement mainElement = new MainElement(timeElement, clientElement, masterElement, date);
+        MainElement mainElemTest = entityDao.writeElement(mainElement);
+        Assert.assertTrue(mainElement.equals(mainElemTest));
         set.add(mainElemTest);
-    }
-
-    @Test(priority = 2)
-    public void getMain() {
-        List<Appointment> list = entityDao.getMainForDate(date);
-        Assert.assertTrue(list.size() == set.size());
     }
 
     @AfterTest

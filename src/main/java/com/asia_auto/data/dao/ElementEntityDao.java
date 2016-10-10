@@ -1,6 +1,6 @@
 package com.asia_auto.data.dao;
 
-import com.asia_auto.data.entity.Appointment;
+import com.asia_auto.data.entity.MainElement;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
@@ -48,9 +48,9 @@ public class ElementEntityDao {
         }
     }
 
-    public synchronized List<Appointment> getMainForDate(Date date) {
+    public synchronized List<MainElement> getMainForDate(Date date) {
         try {
-            Query query = em.createQuery("Select e from Appointment e where e.date = :date");
+            Query query = em.createQuery("Select e from MainElement e where e.date = :date");
             query.setParameter("date", date);
             return query.getResultList();
         } catch (Exception e) {

@@ -54,18 +54,18 @@ public class ServerTest {
         TreeMap<Long, Element> map = new TreeMap<>();
         MasterElement masterElement = new MasterElement(getRandomString(), getRandomString(), getRandomString(), "1", null);
         ClientElement clientElement = new ClientElement(getRandomString(), getRandomString(), getRandomString(), null, null, null, null, null, null, null);
-        Appointment appointment = new Appointment(timeElement, clientElement, masterElement, date);
-        map.put(0L, appointment);
+        MainElement mainElement = new MainElement(timeElement, clientElement, masterElement, date);
+        map.put(0L, mainElement);
         Message message = new Message(MessageType.INPUT_DATA, map, date, null);
         try (Connection connection = new Connection(new Socket("127.0.0.1", 81))) {
             connection.send(message);
             map = connection.receive().getMap();
-            Appointment nMain = null;
+            MainElement nMain = null;
             for (Element e : map.values()) {
-                nMain = (Appointment) e;
+                nMain = (MainElement) e;
             }
             set.add(nMain);
-            Assert.assertTrue(nMain.equals(appointment));
+            Assert.assertTrue(nMain.equals(mainElement));
         } catch (Exception e) {
             e.printStackTrace();
         }

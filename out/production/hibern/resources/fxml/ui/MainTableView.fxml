@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Box?>
+<StackPane fx:id="root" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+    <VBox spacing="10">
+        <children>
+            <HBox alignment="CENTER">
+                <Label styleClass="title-label">Очередность клиентов</Label>
+                <Label fx:id="treeTableViewCount" styleClass="title-label"/>
+                <HBox alignment="CENTER" maxWidth="120">
+                    <children>
+                        <JFXDatePicker fx:id="datePicker" defaultColor="#5264AE" maxWidth="-Infinity"
+                                       minWidth="-Infinity" prefWidth="120.0"/>
+                    </children>
+                </HBox>
+                <StackPane HBox.hgrow="ALWAYS">
+                    <StackPane maxWidth="200" StackPane.alignment="CENTER_RIGHT">
+                        <JFXTextField fx:id="searchField" promptText="Поиск..."/>
+                    </StackPane>
+                </StackPane>
+            </HBox>
+            <JFXTreeTableView fx:id="treeTableView" VBox.vgrow="ALWAYS">
+                <columns>
+                    <JFXTreeTableColumn fx:id="timeColumn" prefWidth="120" resizable="true"
+                                        style="-fx-font-size: 16.0px;"
+                                        text="Время"/>
+                    <JFXTreeTableColumn fx:id="clientColumn" prefWidth="600" resizable="true"
+                                        style="-fx-font-size: 16.0px" text="Клиент"/>
+                    <JFXTreeTableColumn fx:id="masterColumn" prefWidth="200" resizable="true"
+                                        style="-fx-font-size: 16.0px;" text="Мастер"/>
+                    <JFXTreeTableColumn fx:id="commentColumn" resizable="true"
+                                        style="-fx-font-size: 16.0px;" text="Комментарий"/>
+                </columns>
+            </JFXTreeTableView>
+            <HBox alignment="CENTER" minHeight="50" spacing="100" style="-fx-padding: 0 0 10 0;">
+                <children>
+                    <JFXButton fx:id="addButton" buttonType="RAISED" prefHeight="40" prefWidth="200"
+                               style="-fx-text-fill:WHITE;-fx-font-size:14px;-fx-background-color:#5264AE;"
+                               text="Добавить запись"/>
+                    <JFXButton fx:id="removeButton" buttonType="RAISED" prefHeight="40" prefWidth="200"
+                               style="-fx-text-fill:WHITE;-fx-font-size:14px;-fx-background-color:#5264AE;"
+                               text="Редактировать запись"/>
+                </children>
+            </HBox>
+        </children>
+    </VBox>
+    <JFXDialog fx:id="addDialog">
+        <JFXDialogLayout fx:id="addDialogLayout">
+            <heading>
+                <Label>Введите данные:</Label>
+            </heading>
+            <body>
+                <VBox fx:id="clientParametrs" spacing="10">
+                    <JFXTextField fx:id="family" promptText="Фамилия"></JFXTextField>
+                    <JFXTextField fx:id="name" promptText="Имя"></JFXTextField>
+                    <JFXTextField fx:id="secondName" promptText="Отчество"></JFXTextField>
+                    <JFXTextField fx:id="phone" promptText="Телефон"></JFXTextField>
+                    <JFXTextField fx:id="email" promptText="email"></JFXTextField>
+                    <JFXTextField fx:id="town" promptText="Город"></JFXTextField>
+                    <JFXTextField fx:id="street" promptText="Улица"></JFXTextField>
+                    <JFXTextField fx:id="house" promptText="Дом"></JFXTextField>
+                    <JFXTextField fx:id="flat" promptText="Квартира"></JFXTextField>
+                    <JFXTextField fx:id="comment" promptText="Комментарий"></JFXTextField>
+                </VBox>
+            </body>
+            <actions>
+                <JFXButton fx:id="addDialogAcceptButton" styleClass="dialog-accept">ПРИНЯТЬ</JFXButton>
+            </actions>
+        </JFXDialogLayout>
+        <HBox alignment="BOTTOM_LEFT" spacing="10">
+            <JFXDatePicker fx:id="targetDatePicker" defaultColor="#5264AE" maxWidth="-Infinity"
+                           minWidth="-Infinity" prefWidth="140.0"/>
+            <JFXComboBox fx:id="addDialogMastersComboBox" promptText="Мастер" maxWidth="-Infinity"
+                         minWidth="-Infinity" prefWidth="100.0" style="-fx-font-weight: bold">
+            </JFXComboBox>
+            <JFXComboBox fx:id="jfxTimesBox" maxWidth="-Infinity"
+                         minWidth="-Infinity" prefWidth="80.0" promptText="Время" style="-fx-font-weight: BOLD;">
+            </JFXComboBox>
+        </HBox>
+    </JFXDialog>
+    <JFXDialog fx:id="chengeDialog">
+        <JFXDialogLayout fx:id="chengeDialogLayout">
+            <heading>
+                <Label>Редактирование данных:</Label>
+            </heading>
+            <body>
+                <VBox fx:id="clientParametrsChengeDialog" spacing="10">
+                    <JFXTextField fx:id="familyChengeDialog" promptText="Фамилия"></JFXTextField>
+                    <JFXTextField fx:id="nameChengeDialog" promptText="Имя"></JFXTextField>
+                    <JFXTextField fx:id="secondNameChengeDialog" promptText="Отчество"></JFXTextField>
+                    <JFXTextField fx:id="phoneChengeDialog" promptText="Телефон"></JFXTextField>
+                    <JFXTextField fx:id="emailChengeDialog" promptText="email"></JFXTextField>
+                    <JFXTextField fx:id="townChengeDialog" promptText="Город"></JFXTextField>
+                    <JFXTextField fx:id="streetChengeDialog" promptText="Улица"></JFXTextField>
+                    <JFXTextField fx:id="houseChengeDialog" promptText="Дом"></JFXTextField>
+                    <JFXTextField fx:id="flatChengeDialog" promptText="Квартира"></JFXTextField>
+                    <JFXTextField fx:id="commentChengeDialog" promptText="Комментарий"></JFXTextField>
+                </VBox>
+            </body>
+            <actions>
+                <VBox alignment="CENTER">
+                    <JFXButton fx:id="chengeDialogAcceptButton" styleClass="dialog-accept">ПРИНЯТЬ</JFXButton>
+                    <JFXButton fx:id="chengeDialogDelButton" styleClass="dialog-accept">УДАЛИТЬ</JFXButton>
+                </VBox>
+            </actions>
+        </JFXDialogLayout>
+        <VBox alignment="BOTTOM_LEFT" spacing="15" style="-fx-padding: 0 0 30 25">
+            <children>
+                <JFXDatePicker fx:id="targetDatePickerChengeDialog" defaultColor="#5264AE" maxWidth="-Infinity"
+                               minWidth="-Infinity" prefWidth="140.0"/>
+                <HBox spacing="20" style="-fx-padding: 0 0 0 5">
+                    <JFXComboBox fx:id="mastersComboBox" promptText="Мастер" prefWidth="200"
+                                 style="-fx-font-weight: bold"></JFXComboBox>
+                    <JFXComboBox fx:id="jfxTimesBoxchengeDialog" maxWidth="-Infinity"
+                                 minWidth="-Infinity" prefWidth="80.0" promptText="Время"
+                                 style="-fx-font-weight: BOLD;">
+                    </JFXComboBox>
+                </HBox>
+            </children>
+        </VBox>
+    </JFXDialog>
+</StackPane>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Box?>
+<StackPane fx:id="root" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+    <VBox alignment="CENTER">
+        <JFXTextField fx:id="port" promptText="Порт для входящих подключений"></JFXTextField>
+        <JFXToggleButton fx:id="startServer" styleClass="custom-jfx-toggle-button" text="ВКЛ/ВЫКЛ"></JFXToggleButton>
+    </VBox>
+</StackPane>
