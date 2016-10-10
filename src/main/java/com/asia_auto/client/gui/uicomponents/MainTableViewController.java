@@ -189,22 +189,22 @@ public class MainTableViewController implements Observer {
             TreeItem<Person> item = treeTableView.getFocusModel().getFocusedItem();
             if (item != null && item.getValue() != null) {
                 Person person = item.getValue();
-                MainElement mainElement = (MainElement) dataForDate.getMap().get(person.id.getValue());
-                nameChengeDialog.setText(mainElement.getClient().getName());
-                familyChengeDialog.setText(mainElement.getClient().getFamily());
-                secondNameChengeDialog.setText(mainElement.getClient().getSecondName());
-                commentChengeDialog.setText(mainElement.getClient().getComment());
-                emailChengeDialog.setText(mainElement.getClient().getEmail());
-                flatChengeDialog.setText(mainElement.getClient().getFlat());
-                houseChengeDialog.setText(mainElement.getClient().getHouse());
-                phoneChengeDialog.setText(mainElement.getClient().getPhone());
-                streetChengeDialog.setText(mainElement.getClient().getStreet());
-                townChengeDialog.setText(mainElement.getClient().getTown());
-                targetDatePickerChengeDialog.setValue(mainElement.getDate().toLocalDate());
-                String time = mainElement.getTime().getTime().toString();
+                Appointment appointment = (Appointment) dataForDate.getMap().get(person.id.getValue());
+                nameChengeDialog.setText(appointment.getClient().getName());
+                familyChengeDialog.setText(appointment.getClient().getFamily());
+                secondNameChengeDialog.setText(appointment.getClient().getSecondName());
+                commentChengeDialog.setText(appointment.getClient().getComment());
+                emailChengeDialog.setText(appointment.getClient().getEmail());
+                flatChengeDialog.setText(appointment.getClient().getFlat());
+                houseChengeDialog.setText(appointment.getClient().getHouse());
+                phoneChengeDialog.setText(appointment.getClient().getPhone());
+                streetChengeDialog.setText(appointment.getClient().getStreet());
+                townChengeDialog.setText(appointment.getClient().getTown());
+                targetDatePickerChengeDialog.setValue(appointment.getDate().toLocalDate());
+                String time = appointment.getTime().getTime().toString();
                 time = time.substring(0, time.length() - 3);
                 jfxTimesBoxchengeDialog.setValue(time);
-                MasterElement master = mainElement.getMaster();
+                MasterElement master = appointment.getMaster();
                 if (master != null) {
                     mastersComboBox.setValue(master.getFamily() + " " + master.getName() + " " + master.getSecondName());
                 } else {
@@ -216,8 +216,8 @@ public class MainTableViewController implements Observer {
         chengeDialogAcceptButton.setOnAction(event -> {
             TreeItem<Person> item = treeTableView.getFocusModel().getFocusedItem();
             Person person = item.getValue();
-            MainElement mainElement = (MainElement) dataForDate.getMap().get(person.id.getValue());
-            ClientElement client = mainElement.getClient();
+            Appointment appointment = (Appointment) dataForDate.getMap().get(person.id.getValue());
+            ClientElement client = appointment.getClient();
             client.setName(nameChengeDialog.getText());
             client.setSecondName(secondNameChengeDialog.getText());
             client.setFamily(familyChengeDialog.getText());
@@ -242,11 +242,11 @@ public class MainTableViewController implements Observer {
                 if (master.equals(tempMaster)) tempMaster = master;
             }
             Date targetDate = Date.valueOf(targetDatePickerChengeDialog.getValue());
-            mainElement.setDate(targetDate);
-            mainElement.setMaster(tempMaster);
-            mainElement.setTime(timeElement);
+            appointment.setDate(targetDate);
+            appointment.setMaster(tempMaster);
+            appointment.setTime(timeElement);
             TreeMap<Long, Element> mainElementTreeMap = new TreeMap<>();
-            mainElementTreeMap.put(mainElement.getId(), mainElement);
+            mainElementTreeMap.put(appointment.getId(), appointment);
             Message updateMessage = new Message(MessageType.INPUT_DATA, mainElementTreeMap, targetDate, null);
             System.out.println(updateMessage);
             Platform.runLater(new Runnable() {
@@ -262,8 +262,8 @@ public class MainTableViewController implements Observer {
             TreeItem<Person> item = treeTableView.getFocusModel().getFocusedItem();
             Person person = item.getValue();
             TreeMap<Long, Element> mainElemMap = new TreeMap<>();
-            MainElement mainElement = (MainElement) dataForDate.getMap().get(person.id.getValue());
-            mainElemMap.put(mainElement.getId(), mainElement);
+            Appointment appointment = (Appointment) dataForDate.getMap().get(person.id.getValue());
+            mainElemMap.put(appointment.getId(), appointment);
             Message delMessage = new Message(MessageType.DELETE_DATA, mainElemMap, date, null);
             Platform.runLater(new Runnable() {
                 @Override
@@ -276,23 +276,23 @@ public class MainTableViewController implements Observer {
 
         addDialogAcceptButton.setOnAction((event) -> {
             logger.log(Level.INFO, "addDialogAcceptButton.setOnAction");
-            MainElement mainElement = new MainElement();
-            mainElement.setClient(new ClientElement(name.getText(), secondName.getText(), family.getText(), phone.getText(), email.getText(), town.getText(), street.getText(), house.getText(), flat.getText(), comment.getText()));
+            Appointment appointment = new Appointment();
+            appointment.setClient(new ClientElement(name.getText(), secondName.getText(), family.getText(), phone.getText(), email.getText(), town.getText(), street.getText(), house.getText(), flat.getText(), comment.getText()));
             Time time = Time.valueOf(jfxTimesBox.getValue() + ":00");
             TreeMap<Long, Element> timesMap = new TreeMap<>();
             for (Element e : allTimes.getMap().values()) {
                 TimeElement element = (TimeElement) e;
-                if (element.getTime().equals(time)) mainElement.setTime(element);
+                if (element.getTime().equals(time)) appointment.setTime(element);
             }
             String[] tempMasterParam = addDialogMastersComboBox.getValue().toString().split(" ");
             MasterElement tempMaster = new MasterElement(tempMasterParam[1], tempMasterParam[2], tempMasterParam[0], null, null);
             for (Element m : allMasters.getMap().values()) {
                 MasterElement master = (MasterElement) m;
-                if (master.equals(tempMaster)) mainElement.setMaster(master);
+                if (master.equals(tempMaster)) appointment.setMaster(master);
             }
-            mainElement.setDate(Date.valueOf(targetDatePicker.getValue()));
+            appointment.setDate(Date.valueOf(targetDatePicker.getValue()));
             TreeMap<Long, Element> map = new TreeMap<Long, Element>();
-            map.put(0L, mainElement);
+            map.put(0L, appointment);
             Message registrationMess = new Message(MessageType.INPUT_DATA, map, null, null);
             Platform.runLater(new Runnable() {
                 @Override
@@ -325,16 +325,16 @@ public class MainTableViewController implements Observer {
         ObservableList<Person> people = FXCollections.observableArrayList();
         if (messageDay != null && messageDay.getMap() != null) {
             for (Element m : messageDay.getMap().values()) {
-                MainElement mainElement = (MainElement) m;
-                String time = mainElement.getTime().getTime().toString();
+                Appointment appointment = (Appointment) m;
+                String time = appointment.getTime().getTime().toString();
                 time = time.substring(0, time.length() - 3);
-                String clientFamily = mainElement.getClient().getFamily();
-                String clientName = mainElement.getClient().getName();
-                String clientSecondName = mainElement.getClient().getSecondName();
-                String clientPhone = mainElement.getClient().getPhone();
-                String clientComment = mainElement.getClient().getComment();
-                long id = mainElement.getId();
-                String master = mainElement.getMaster() == null ? "" : mainElement.getMaster().getFamily();
+                String clientFamily = appointment.getClient().getFamily();
+                String clientName = appointment.getClient().getName();
+                String clientSecondName = appointment.getClient().getSecondName();
+                String clientPhone = appointment.getClient().getPhone();
+                String clientComment = appointment.getClient().getComment();
+                long id = appointment.getId();
+                String master = appointment.getMaster() == null ? "" : appointment.getMaster().getFamily();
                 Person person = new Person(id, time, clientFamily + " " + clientName + " " + clientSecondName + " " + clientPhone, master, clientComment);
                 people.add(person);
             }

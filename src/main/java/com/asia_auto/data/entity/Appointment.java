@@ -9,8 +9,8 @@ import java.sql.Date;
  * Created by Игорь on 15.08.2016.
  */
 @Entity
-@NamedQuery(name = "MainElement.getAll", query = "SELECT c from MainElement c")
-public class MainElement implements Element, Serializable {
+@NamedQuery(name = "MainElement.getAll", query = "SELECT c from Appointment c")
+public class Appointment implements Element, Serializable {
     @Id
     @GeneratedValue
     private long id;
@@ -27,7 +27,7 @@ public class MainElement implements Element, Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        MainElement that = (MainElement) o;
+        Appointment that = (Appointment) o;
 
         if (time != null ? !time.equals(that.time) : that.time != null) return false;
         if (client != null ? !client.equals(that.client) : that.client != null) return false;
@@ -46,7 +46,7 @@ public class MainElement implements Element, Serializable {
     }
 
 
-    public MainElement() {
+    public Appointment() {
     }
 
     public void setId(long id) {
@@ -85,7 +85,7 @@ public class MainElement implements Element, Serializable {
         this.date = date;
     }
 
-    public MainElement(TimeElement time, ClientElement client, MasterElement master, Date date) {
+    public Appointment(TimeElement time, ClientElement client, MasterElement master, Date date) {
         this.time = time;
         this.client = client;
         this.master = master;
@@ -94,7 +94,7 @@ public class MainElement implements Element, Serializable {
 
     @Override
     public String toString() {
-        return "MainElement{" +
+        return "Appointment{" +
                 "id=" + id +
                 ", time=" + time +
                 ", client=" + client +

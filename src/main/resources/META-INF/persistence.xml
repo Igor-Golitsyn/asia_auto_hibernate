@@ -6,7 +6,7 @@
 
     <persistence-unit name="COLIBRI" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <class>com.asia_auto.data.entity.MainElement</class>
+        <class>com.asia_auto.data.entity.Appointment</class>
         <class>com.asia_auto.data.entity.MasterElement</class>
         <class>com.asia_auto.data.entity.TimeElement</class>
         <class>com.asia_auto.data.entity.ClientElement</class>
