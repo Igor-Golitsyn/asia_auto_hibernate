@@ -38,11 +38,6 @@ public class ElementEntityDaoTest {
     }
 
     @Test(priority = 2)
-    public void getAll() {
-        Assert.assertTrue(set.size() == entityDao.getAllElements(Appointment.class).size());
-    }
-
-    @Test(priority = 3)
     public void getMain() {
         List<Appointment> list = entityDao.getMainForDate(date);
         Assert.assertTrue(list.size() == set.size());

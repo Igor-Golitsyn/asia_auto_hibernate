@@ -18,10 +18,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 
-/*import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGEncodeParam;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;*/
-
 /**
  * This is a utility class for performing basic functions on an image,
  * such as retrieving, resizing, cropping, and saving.
