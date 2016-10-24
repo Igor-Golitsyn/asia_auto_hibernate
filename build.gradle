@@ -1,5 +1,4 @@
 apply plugin: 'java'
-apply plugin: 'maven'
 
 group = 'hibern'
 version = '1.0-SNAPSHOT'
@@ -14,9 +13,9 @@ repositories {
      maven { url "http://repo.maven.apache.org/maven2" }
 }
 dependencies {
-    compile group: 'mysql', name: 'mysql-connector-java', version:'5.1.25'
-    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version:'4.2.1.Final'
-    compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.0-api', version:'1.0.1.Final'
+    compile 'org.hibernate:hibernate-entitymanager:5.2.3.Final'
+    compile 'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final'
+    compile 'org.hibernate:hibernate-core:5.2.3.Final'
     compile 'com.jfoenix:jfoenix:1.0.0'
     compile 'io.datafx:datafx:8.0b8'
     compile 'io.datafx:flow:8.0b8'
