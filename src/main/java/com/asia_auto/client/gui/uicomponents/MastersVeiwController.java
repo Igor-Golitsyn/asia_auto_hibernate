@@ -1,7 +1,6 @@
 package com.asia_auto.client.gui.uicomponents;
 
 
-import com.asia_auto.client.Connector;
 import com.asia_auto.client.Model;
 import com.asia_auto.client.components.imageUtil.Image;
 import com.asia_auto.client.components.imageUtil.ImageLoader;
