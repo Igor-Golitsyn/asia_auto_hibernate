@@ -82,73 +82,93 @@ public class TimesTableViewController implements Observer {
         if (times == null) runConnector(new Message(MessageType.GET_TIMES, null));
         else buildTable(times);
         addButton.setOnAction(event -> {
-            comment.setText("");
-            addDialog.show((StackPane) context.getRegisteredObject("ContentPane"));
+            addButton();
         });
         editButton.setOnAction(event -> {
-            TreeItem<Person> item = treeTableView.getFocusModel().getFocusedItem();
-            Person person = item.getValue();
-            TimeElement timeElement = (TimeElement) times.getMap().get(person.id.getValue());
-            commentEdit.setText(timeElement.getComment());
-            targetTimePickerChengeDialog.setTime(timeElement.getTime().toLocalTime());
-            chengeDialog.show((StackPane) context.getRegisteredObject("ContentPane"));
+            editButton();
         });
         addDialogAcceptButton.setOnAction(event -> {
-            TimeElement timeElement = new TimeElement();
-            Time time = new Time(targetTimePicker.getTime().getHour(), targetTimePicker.getTime().getMinute(), 0);
-            timeElement.setTime(time);
-            timeElement.setComment(comment.getText());
-            for (Element e : times.getMap().values()) {
-                TimeElement timeEl = (TimeElement) e;
-                if (timeEl.equals(timeElement)) {
-                    timeElement = timeEl;
-                }
-            }
-            if (timeElement.getId()==0) {
-                TreeMap<Long, Element> map = new TreeMap<>();
-                map.put(0L, timeElement);
-                Message message = new Message(MessageType.INPUT_DATA, map, null, null);
-                runConnector(message);
-            }
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    addDialog.close();
-                }
-            });
+            addDialogAcceptButton();
         });
         chengeDialogAcceptButton.setOnAction(event -> {
-            TreeItem<Person> item = treeTableView.getFocusModel().getFocusedItem();
-            Person person = item.getValue();
-            TimeElement timeElement = (TimeElement) times.getMap().get(person.id.getValue());
-            Time time = new Time(targetTimePickerChengeDialog.getTime().getHour(), targetTimePickerChengeDialog.getTime().getMinute(), 0);
-            timeElement.setComment(commentEdit.getText());
-            timeElement.setTime(time);
+            chengeDialogAcceptButton();
+        });
+        chengeDialogDelButton.setOnAction(event -> {
+            chengeDialogDelButton();
+        });
+    }
+
+    private void addButton() {
+        comment.setText("");
+        addDialog.show((StackPane) context.getRegisteredObject("ContentPane"));
+    }
+
+    private void editButton() {
+        TreeItem<Person> item = treeTableView.getFocusModel().getFocusedItem();
+        Person person = item.getValue();
+        TimeElement timeElement = (TimeElement) times.getMap().get(person.id.getValue());
+        commentEdit.setText(timeElement.getComment());
+        targetTimePickerChengeDialog.setTime(timeElement.getTime().toLocalTime());
+        chengeDialog.show((StackPane) context.getRegisteredObject("ContentPane"));
+    }
+
+    private void addDialogAcceptButton() {
+        TimeElement timeElement = new TimeElement();
+        Time time = new Time(targetTimePicker.getTime().getHour(), targetTimePicker.getTime().getMinute(), 0);
+        timeElement.setTime(time);
+        timeElement.setComment(comment.getText());
+        for (Element e : times.getMap().values()) {
+            TimeElement timeEl = (TimeElement) e;
+            if (timeEl.equals(timeElement)) {
+                timeElement = timeEl;
+            }
+        }
+        if (timeElement.getId() == 0) {
             TreeMap<Long, Element> map = new TreeMap<>();
             map.put(0L, timeElement);
             Message message = new Message(MessageType.INPUT_DATA, map, null, null);
             runConnector(message);
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    chengeDialog.close();
-                }
-            });
+        }
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                addDialog.close();
+            }
         });
-        chengeDialogDelButton.setOnAction(event -> {
-            TreeItem<Person> item = treeTableView.getFocusModel().getFocusedItem();
-            Person person = item.getValue();
-            TimeElement timeElement = (TimeElement) times.getMap().get(person.id.getValue());
-            TreeMap<Long, Element> map = new TreeMap<>();
-            map.put(timeElement.getId(), timeElement);
-            Message message = new Message(MessageType.DELETE_DATA, map, null, null);
-            runConnector(message);
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    chengeDialog.close();
-                }
-            });
+    }
+
+    private void chengeDialogAcceptButton() {
+        TreeItem<Person> item = treeTableView.getFocusModel().getFocusedItem();
+        Person person = item.getValue();
+        TimeElement timeElement = (TimeElement) times.getMap().get(person.id.getValue());
+        Time time = new Time(targetTimePickerChengeDialog.getTime().getHour(), targetTimePickerChengeDialog.getTime().getMinute(), 0);
+        timeElement.setComment(commentEdit.getText());
+        timeElement.setTime(time);
+        TreeMap<Long, Element> map = new TreeMap<>();
+        map.put(0L, timeElement);
+        Message message = new Message(MessageType.INPUT_DATA, map, null, null);
+        runConnector(message);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                chengeDialog.close();
+            }
+        });
+    }
+
+    private void chengeDialogDelButton() {
+        TreeItem<Person> item = treeTableView.getFocusModel().getFocusedItem();
+        Person person = item.getValue();
+        TimeElement timeElement = (TimeElement) times.getMap().get(person.id.getValue());
+        TreeMap<Long, Element> map = new TreeMap<>();
+        map.put(timeElement.getId(), timeElement);
+        Message message = new Message(MessageType.DELETE_DATA, map, null, null);
+        runConnector(message);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                chengeDialog.close();
+            }
         });
     }
 
