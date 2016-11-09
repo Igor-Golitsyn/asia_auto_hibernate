@@ -16,7 +16,6 @@
 		<Label fx:id="treetableview"> Очередность клиентов</Label>
 		<Label fx:id="mastersView"> Мастера</Label>
 		<Label fx:id="timesView"> Время</Label>
-		<Label fx:id="settings"> Настройки</Label>
 
 	</JFXListView>
 </StackPane>

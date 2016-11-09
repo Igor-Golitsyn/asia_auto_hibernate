@@ -91,6 +91,7 @@ public class Model extends Observable implements Runnable {
         }
         return new Message(forResponse, map, null, null);
     }
+
     private Message getDataForDate(MessageType forResponse, Date date) {
         TreeMap<Long, Element> map = new TreeMap<>();
         List<MainElement> mainList = ElementEntityDao.getInstance().getMainForDate(date);
@@ -101,7 +102,8 @@ public class Model extends Observable implements Runnable {
                     map.put(mainElement.getId(), mainElement);
                 }
                 break;
-            case TIMES_FOR_DATE:  // лимит одновременных клиентов
+            case TIMES_FOR_DATE:
+                int limit = 3;// лимит одновременных клиентов
                 for (TimeElement timeElement : timeList) {
                     int count = 0;
                     if (mainList != null && mainList.size() != 0) {
@@ -109,7 +111,7 @@ public class Model extends Observable implements Runnable {
                             if (timeElement.equals(mainElement.getTime())) count++;
                         }
                     }
-                    if (count < 2) map.put(timeElement.getId(), timeElement);
+                    if (count < limit) map.put(timeElement.getId(), timeElement);
                 }
         }
         return new Message(forResponse, map, date, null);

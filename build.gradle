@@ -21,7 +21,7 @@ dependencies {
     compile 'io.datafx:flow:8.0b8'
     compile 'de.jensd:fontawesomefx:8.0.10'
     compile 'com.mortennobel:java-image-scaling:0.8.6'
-    compile 'com.h2database:h2:1.4.192'
+    compile 'mysql:mysql-connector-java:5.1.32'
     testCompile group: 'org.testng', name: 'testng', version:'6.9.10'
 }
 test{

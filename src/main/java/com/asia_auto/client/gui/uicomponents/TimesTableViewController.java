@@ -1,6 +1,6 @@
 package com.asia_auto.client.gui.uicomponents;
 
-import com.asia_auto.client.Connector;
+import com.asia_auto.client.Model;
 import com.asia_auto.data.Message;
 import com.asia_auto.data.MessageType;
 import com.asia_auto.data.entity.Element;
@@ -79,7 +79,7 @@ public class TimesTableViewController implements Observer {
     public void init() {
         targetTimePicker.setPadding(new Insets(0, 0, 20, 25));
         targetTimePickerChengeDialog.setPadding(new Insets(0, 0, 20, 0));
-        if (times == null) runConnector(new Message(MessageType.GET_TIMES, null));
+        if (times == null) runModel(new Message(MessageType.GET_TIMES, null));
         else buildTable(times);
         addButton.setOnAction(event -> {
             addButton();
@@ -127,7 +127,7 @@ public class TimesTableViewController implements Observer {
             TreeMap<Long, Element> map = new TreeMap<>();
             map.put(0L, timeElement);
             Message message = new Message(MessageType.INPUT_DATA, map, null, null);
-            runConnector(message);
+            runModel(message);
         }
         Platform.runLater(new Runnable() {
             @Override
@@ -147,7 +147,7 @@ public class TimesTableViewController implements Observer {
         TreeMap<Long, Element> map = new TreeMap<>();
         map.put(0L, timeElement);
         Message message = new Message(MessageType.INPUT_DATA, map, null, null);
-        runConnector(message);
+        runModel(message);
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -163,7 +163,7 @@ public class TimesTableViewController implements Observer {
         TreeMap<Long, Element> map = new TreeMap<>();
         map.put(timeElement.getId(), timeElement);
         Message message = new Message(MessageType.DELETE_DATA, map, null, null);
-        runConnector(message);
+        runModel(message);
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -202,11 +202,11 @@ public class TimesTableViewController implements Observer {
         });
     }
 
-    private void runConnector(Message message) {
-        logger.log(Level.INFO, "runConnector " + message.getType());
-        Connector connector = new Connector(message);
-        connector.addObserver(this);
-        new Thread(connector).start();
+    private void runModel(Message message) {
+        logger.log(Level.INFO, "runModel " + message.getType());
+        Model model=new Model(message);
+        model.addObserver(this);
+        new Thread(model).start();
     }
 
     @Override
@@ -225,7 +225,7 @@ public class TimesTableViewController implements Observer {
                 });
                 break;
             default:
-                runConnector(new Message(MessageType.GET_TIMES, null));
+                runModel(new Message(MessageType.GET_TIMES, null));
                 break;
         }
     }

@@ -3,8 +3,6 @@ package com.asia_auto.client.gui.main;
 import com.asia_auto.client.datafx.AnimatedFlowContainer;
 import com.asia_auto.client.gui.sidemenu.SideMenuController;
 import com.asia_auto.client.gui.uicomponents.MainTableViewController;
-import com.asia_auto.client.gui.uicomponents.SettingsVeiwController;
-import com.asia_auto.data.Connection;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXPopup;
@@ -26,10 +24,6 @@ import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 import javax.annotation.PostConstruct;
-import java.io.File;
-import java.io.FileInputStream;
-import java.net.Socket;
-import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -98,28 +92,7 @@ public class MainController {
         // create the inner flow and content
         context = new ViewFlowContext();
         // set the default controller
-        Flow innerFlow;
-        String homeDir = System.getProperty("user.home");
-        final String settingsFilename = homeDir + File.separator + "client.properties";
-        final Properties props = new Properties();
-        try (FileInputStream inputStream = new FileInputStream(settingsFilename)) {
-            props.load(inputStream);
-        } catch (Exception e) {
-        }
-        if (!props.isEmpty()) {
-            String adr = props.getProperty("adress");
-            String portt = props.getProperty("portt");
-            try (Connection connection = new Connection(new Socket(adr, Integer.parseInt(portt)))) {
-                innerFlow = new Flow(MainTableViewController.class);
-                SettingsVeiwController.setAdr(adr);
-                SettingsVeiwController.setPortt(portt);
-            } catch (Exception e) {
-                innerFlow = new Flow(SettingsVeiwController.class);
-            }
-        } else {
-            innerFlow = new Flow(SettingsVeiwController.class);
-        }
-
+        Flow innerFlow = new Flow(MainTableViewController.class);
         flowHandler = innerFlow.createHandler(context);
         context.register("ContentFlowHandler", flowHandler);
         context.register("ContentFlow", innerFlow);

@@ -2,7 +2,6 @@ package com.asia_auto.client.gui.sidemenu;
 
 import com.asia_auto.client.gui.uicomponents.MainTableViewController;
 import com.asia_auto.client.gui.uicomponents.MastersVeiwController;
-import com.asia_auto.client.gui.uicomponents.SettingsVeiwController;
 import com.asia_auto.client.gui.uicomponents.TimesTableViewController;
 import com.jfoenix.controls.JFXListView;
 import io.datafx.controller.FXMLController;
@@ -36,10 +35,6 @@ public class SideMenuController {
     @FXML
     @ActionTrigger("timesView")
     private Label timesView;
-    @FXML
-    @ActionTrigger("settings")
-    private Label settings;
-
 
     @FXML
     private JFXListView<?> sideList;
@@ -52,7 +47,6 @@ public class SideMenuController {
         bindNodeToController(treetableview, MainTableViewController.class, contentFlow, contentFlowHandler);
         bindNodeToController(mastersView, MastersVeiwController.class, contentFlow, contentFlowHandler);
         bindNodeToController(timesView, TimesTableViewController.class, contentFlow, contentFlowHandler);
-        bindNodeToController(settings, SettingsVeiwController.class, contentFlow, contentFlowHandler);
     }
 
     private void bindNodeToController(Node node, Class<?> controllerClass, Flow flow, FlowHandler flowHandler) {

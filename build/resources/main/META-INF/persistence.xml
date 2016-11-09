@@ -11,11 +11,11 @@
         <class>com.asia_auto.data.entity.TimeElement</class>
         <class>com.asia_auto.data.entity.ClientElement</class>
         <properties>
-            <property name="hibernate.connection.driver_class" value="org.h2.Driver"/>
-            <property name="hibernate.connection.url" value="jdbc:h2:tcp://localhost/~/111;AUTO_SERVER=TRUE"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://micro:3306/111"/>
             <property name="hibernate.connection.username" value="admin"/>
             <property name="hibernate.connection.password" value="1234"/>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
         </properties>
     </persistence-unit>

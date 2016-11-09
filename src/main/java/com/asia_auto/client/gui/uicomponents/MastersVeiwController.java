@@ -2,6 +2,7 @@ package com.asia_auto.client.gui.uicomponents;
 
 
 import com.asia_auto.client.Connector;
+import com.asia_auto.client.Model;
 import com.asia_auto.client.components.imageUtil.Image;
 import com.asia_auto.client.components.imageUtil.ImageLoader;
 import com.asia_auto.data.Message;
@@ -97,7 +98,7 @@ public class MastersVeiwController implements Observer {
         Message message = (Message) arg;
         switch (message.getType()) {
             case ACCEPTED:
-                runConnector(new Message(MessageType.GET_MASTERS, null));
+                runModel(new Message(MessageType.GET_MASTERS, null));
                 break;
             case MASTERS:
                 Platform.runLater(new Runnable() {
@@ -108,7 +109,7 @@ public class MastersVeiwController implements Observer {
                 });
                 break;
             default:
-                runConnector(new Message(MessageType.GET_MASTERS, null));
+                runModel(new Message(MessageType.GET_MASTERS, null));
                 break;
         }
     }
@@ -116,105 +117,129 @@ public class MastersVeiwController implements Observer {
     @PostConstruct
     public void init() {
         logger.log(Level.INFO, "init");
-        runConnector(new Message(MessageType.GET_MASTERS, null));
+        runModel(new Message(MessageType.GET_MASTERS, null));
         addButton.setOnAction(event -> {
-            logger.log(Level.INFO, "addButton");
-            family.setText("");
-            name.setText("");
-            secondName.setText("");
-            smena.setText("");
-            fotoText.setText("");
-            addMasterDialog.show((StackPane) context.getRegisteredObject("ContentPane"));
+            addButton();
         });
         addDialogAcceptButton.setOnAction(event -> {
-            logger.log(Level.INFO, "addDialogAcceptButton");
-            String famil = family.getText();
-            String nam = name.getText();
-            String secName = secondName.getText();
-            String smen = smena.getText();
-            byte[] fot = new byte[0];
-            fot = imageLoad(fotoText.getText());
-            MasterElement master = new MasterElement(nam, secName, famil, smen, fot);
-            TreeMap<Long, Element> map = new TreeMap<>();
-            map.put(master.getId(), master);
-            Message message = new Message(MessageType.INPUT_DATA, map, date, null);
-            runConnector(message);
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    addMasterDialog.close();
-                }
-            });
+            addDialogAcceptButton();
         });
         fotoButton.setOnAction(event -> {
-            logger.log(Level.INFO, "fotoButton");
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("JPG & PNG файлы", "*.jpg", "*.jpeg", "*.png"));
-            fileChooser.setTitle("Выберите фото мастера:");
-            String file = fileChooser.showOpenDialog(root.getScene().getWindow()).toString();
-            fotoText.setText(file);
+            fotoButton();
         });
         fotoButtonMasterRemoveDialog.setOnAction(event -> {
-            logger.log(Level.INFO, "fotoButtonMasterRemoveDialog");
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("JPG & PNG файлы", "*.jpg", "*.jpeg", "*.png"));
-            fileChooser.setTitle("Выберите фото мастера:");
-            String file = fileChooser.showOpenDialog(root.getScene().getWindow()).toString();
-            fotoTextMasterRemoveDialog.setText(file);
+            fotoButtonMasterRemoveDialog();
         });
         removeDialogAcceptButton.setOnAction(event -> {
-            logger.log(Level.INFO, "removeDialogAcceptButton");
-            long id = Integer.parseInt(idMaster.getText());
-            String name = nameMasterRemoveDialog.getText();
-            String secondName = secondNameMasterRemoveDialog.getText();
-            String family = familyMasterRemoveDialog.getText();
-            String smena = smenaMasterRemoveDialog.getText();
-            if (fotoTextMasterRemoveDialog.getText() == null || fotoTextMasterRemoveDialog.getText().isEmpty()) {
-                if (imageMasterRemoveDialog == null) {
-                    imageMasterRemoveDialog = imageLoad(null);
-                }
-            } else {
-                imageMasterRemoveDialog = imageLoad(fotoTextMasterRemoveDialog.getText());
-            }
-            MasterElement master = new MasterElement(name, secondName, family, smena, imageMasterRemoveDialog);
-            master.setId(id);
-            TreeMap<Long, Element> mastersMap = new TreeMap<>();
-            mastersMap.put(master.getId(), master);
-            runConnector(new Message(MessageType.INPUT_DATA, mastersMap, date, null));
-            imageMasterRemoveDialog = null;
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    removeDialog.close();
-                }
-            });
+            removeDialogAcceptButton();
         });
         removeDialogDelButton.setOnAction(event -> {
-            logger.log(Level.INFO, "removeDialogDelButton");
-            long id = Integer.parseInt(idMaster.getText());
-            String name = nameMasterRemoveDialog.getText();
-            String secondName = secondNameMasterRemoveDialog.getText();
-            String family = familyMasterRemoveDialog.getText();
-            String smena = smenaMasterRemoveDialog.getText();
-            if (fotoTextMasterRemoveDialog.getText() == null || fotoTextMasterRemoveDialog.getText().isEmpty()) {
-                if (imageMasterRemoveDialog == null) {
-                    imageMasterRemoveDialog = imageLoad(null);
-                }
-            } else {
-                imageMasterRemoveDialog = imageLoad(fotoTextMasterRemoveDialog.getText());
+            removeDialogDelButton();
+        });
+    }
+
+    private void addButton() {
+        logger.log(Level.INFO, "addButton");
+        family.setText("");
+        name.setText("");
+        secondName.setText("");
+        smena.setText("");
+        fotoText.setText("");
+        addMasterDialog.show((StackPane) context.getRegisteredObject("ContentPane"));
+    }
+
+    private void addDialogAcceptButton() {
+        logger.log(Level.INFO, "addDialogAcceptButton");
+        String famil = family.getText();
+        String nam = name.getText();
+        String secName = secondName.getText();
+        String smen = smena.getText();
+        byte[] fot = new byte[0];
+        fot = imageLoad(fotoText.getText());
+        MasterElement master = new MasterElement(nam, secName, famil, smen, fot);
+        TreeMap<Long, Element> map = new TreeMap<>();
+        map.put(master.getId(), master);
+        Message message = new Message(MessageType.INPUT_DATA, map, date, null);
+        runModel(message);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                addMasterDialog.close();
             }
-            MasterElement master = new MasterElement(name, secondName, family, smena, imageMasterRemoveDialog);
-            master.setId(id);
-            TreeMap<Long, Element> mastersMap = new TreeMap<>();
-            mastersMap.put(master.getId(), master);
-            runConnector(new Message(MessageType.DELETE_DATA, mastersMap, date, null));
-            imageMasterRemoveDialog = null;
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    removeDialog.close();
-                }
-            });
+        });
+    }
+
+    private void fotoButton() {
+        logger.log(Level.INFO, "fotoButton");
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("JPG & PNG файлы", "*.jpg", "*.jpeg", "*.png"));
+        fileChooser.setTitle("Выберите фото мастера:");
+        String file = fileChooser.showOpenDialog(root.getScene().getWindow()).toString();
+        fotoText.setText(file);
+    }
+
+    private void fotoButtonMasterRemoveDialog() {
+        logger.log(Level.INFO, "fotoButtonMasterRemoveDialog");
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("JPG & PNG файлы", "*.jpg", "*.jpeg", "*.png"));
+        fileChooser.setTitle("Выберите фото мастера:");
+        String file = fileChooser.showOpenDialog(root.getScene().getWindow()).toString();
+        fotoTextMasterRemoveDialog.setText(file);
+    }
+
+    private void removeDialogAcceptButton() {
+        logger.log(Level.INFO, "removeDialogAcceptButton");
+        long id = Integer.parseInt(idMaster.getText());
+        String name = nameMasterRemoveDialog.getText();
+        String secondName = secondNameMasterRemoveDialog.getText();
+        String family = familyMasterRemoveDialog.getText();
+        String smena = smenaMasterRemoveDialog.getText();
+        if (fotoTextMasterRemoveDialog.getText() == null || fotoTextMasterRemoveDialog.getText().isEmpty()) {
+            if (imageMasterRemoveDialog == null) {
+                imageMasterRemoveDialog = imageLoad(null);
+            }
+        } else {
+            imageMasterRemoveDialog = imageLoad(fotoTextMasterRemoveDialog.getText());
+        }
+        MasterElement master = new MasterElement(name, secondName, family, smena, imageMasterRemoveDialog);
+        master.setId(id);
+        TreeMap<Long, Element> mastersMap = new TreeMap<>();
+        mastersMap.put(master.getId(), master);
+        runModel(new Message(MessageType.INPUT_DATA, mastersMap, date, null));
+        imageMasterRemoveDialog = null;
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                removeDialog.close();
+            }
+        });
+    }
+
+    private void removeDialogDelButton() {
+        logger.log(Level.INFO, "removeDialogDelButton");
+        long id = Integer.parseInt(idMaster.getText());
+        String name = nameMasterRemoveDialog.getText();
+        String secondName = secondNameMasterRemoveDialog.getText();
+        String family = familyMasterRemoveDialog.getText();
+        String smena = smenaMasterRemoveDialog.getText();
+        if (fotoTextMasterRemoveDialog.getText() == null || fotoTextMasterRemoveDialog.getText().isEmpty()) {
+            if (imageMasterRemoveDialog == null) {
+                imageMasterRemoveDialog = imageLoad(null);
+            }
+        } else {
+            imageMasterRemoveDialog = imageLoad(fotoTextMasterRemoveDialog.getText());
+        }
+        MasterElement master = new MasterElement(name, secondName, family, smena, imageMasterRemoveDialog);
+        master.setId(id);
+        TreeMap<Long, Element> mastersMap = new TreeMap<>();
+        mastersMap.put(master.getId(), master);
+        runModel(new Message(MessageType.DELETE_DATA, mastersMap, date, null));
+        imageMasterRemoveDialog = null;
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                removeDialog.close();
+            }
         });
     }
 
@@ -243,11 +268,11 @@ public class MastersVeiwController implements Observer {
         return image;
     }
 
-    private void runConnector(Message message) {
-        logger.log(Level.INFO, "runConnector " + message.getType());
-        Connector connector = new Connector(message);
-        connector.addObserver(this);
-        new Thread(connector).start();
+    private void runModel(Message message) {
+        logger.log(Level.INFO, "runModel " + message.getType());
+        Model model=new Model(message);
+        model.addObserver(this);
+        new Thread(model).start();
     }
 
     /**

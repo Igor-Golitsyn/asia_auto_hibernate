@@ -1,6 +1,6 @@
 package com.asia_auto.client.gui.uicomponents;
 
-import com.asia_auto.client.Connector;
+import com.asia_auto.client.Model;
 import com.asia_auto.data.Message;
 import com.asia_auto.data.MessageType;
 import com.asia_auto.data.entity.*;
@@ -11,7 +11,10 @@ import io.datafx.controller.flow.context.FXMLViewFlowContext;
 import io.datafx.controller.flow.context.ViewFlowContext;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
-import javafx.beans.property.*;
+import javafx.beans.property.LongProperty;
+import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -135,173 +138,205 @@ public class MainTableViewController implements Observer {
         targetDatePicker.setPadding(new Insets(0, 0, 20, 25));
         jfxTimesBox.setPadding(new Insets(0, 0, 25, 0));
         addDialogMastersComboBox.setPadding(new Insets(0, 0, 25, 0));
-        runConnector(new Message(MessageType.GET_MAIN_FOR_DATE, date));
-        runConnector(new Message(MessageType.GET_TIMES, null));
+        runModel(new Message(MessageType.GET_MAIN_FOR_DATE, date));
+        runModel(new Message(MessageType.GET_TIMES, null));
         datePicker.setValue(date.toLocalDate());
         datePicker.setOnAction((e) -> {
-            logger.log(Level.INFO, "datePicker.setOnAction");
-            date = Date.valueOf(datePicker.getValue());
-            try {
-                init();
-            } catch (Exception e1) {
-                logger.log(Level.WARNING, e1.getMessage());
-            }
+            datePicker();
         });
         targetDatePicker.setOnAction((e) -> {
-            logger.log(Level.INFO, "targetDatePicker.setOnAction");
-            if (targetDatePicker.getValue() != null) {
-                Date date = Date.valueOf(targetDatePicker.getValue());
-                Message message = new Message(MessageType.GET_TIMES_FOR_DATE, date);
-                runConnector(message);
-            }
+            targetDatePicker();
         });
         targetDatePickerChengeDialog.setOnAction(event -> {
-            logger.log(Level.INFO, "targetDatePickerChengeDialog.setOnAction");
-            if (targetDatePickerChengeDialog.getValue() != null) {
-                Date date = Date.valueOf(targetDatePickerChengeDialog.getValue());
-                Message message = new Message(MessageType.GET_TIMES_FOR_DATE, date);
-                runConnector(message);
-            }
+            targetDatePickerChengeDialog();
         });
         addButton.setOnAction((event) -> {
-            logger.log(Level.INFO, "addButton.setOnAction");
-            if (allMasters == null) runConnector(new Message(MessageType.GET_MASTERS, null));
-            name.setText("");
-            secondName.setText("");
-            family.setText("");
-            phone.setText("");
-            email.setText("");
-            town.setText("");
-            street.setText("");
-            house.setText("");
-            flat.setText("");
-            comment.setText("");
-            addDialogMastersComboBox.setValue("");
-            targetDatePicker.setValue(null);
-            ObservableList<String> strings = jfxTimesBox.getItems();
-            strings.clear();
-            jfxTimesBox.setItems(strings);
-            addDialog.show((StackPane) context.getRegisteredObject("ContentPane"));
+            addButton();
         });
         removeButton.setOnAction((event) -> {
-            logger.log(Level.INFO, "removeButton.setOnAction");
-            if (allMasters == null) runConnector(new Message(MessageType.GET_MASTERS, null));
-            TreeItem<Person> item = treeTableView.getFocusModel().getFocusedItem();
-            if (item != null && item.getValue() != null) {
-                Person person = item.getValue();
-                MainElement mainElement = (MainElement) dataForDate.getMap().get(person.id.getValue());
-                nameChengeDialog.setText(mainElement.getClient().getName());
-                familyChengeDialog.setText(mainElement.getClient().getFamily());
-                secondNameChengeDialog.setText(mainElement.getClient().getSecondName());
-                commentChengeDialog.setText(mainElement.getClient().getComment());
-                emailChengeDialog.setText(mainElement.getClient().getEmail());
-                flatChengeDialog.setText(mainElement.getClient().getFlat());
-                houseChengeDialog.setText(mainElement.getClient().getHouse());
-                phoneChengeDialog.setText(mainElement.getClient().getPhone());
-                streetChengeDialog.setText(mainElement.getClient().getStreet());
-                townChengeDialog.setText(mainElement.getClient().getTown());
-                targetDatePickerChengeDialog.setValue(mainElement.getDate().toLocalDate());
-                String time = mainElement.getTime().getTime().toString();
-                time = time.substring(0, time.length() - 3);
-                jfxTimesBoxchengeDialog.setValue(time);
-                MasterElement master = mainElement.getMaster();
-                if (master != null) {
-                    mastersComboBox.setValue(master.getFamily() + " " + master.getName() + " " + master.getSecondName());
-                } else {
-                    mastersComboBox.setValue("Мастер");
-                }
-                chengeDialog.show((StackPane) context.getRegisteredObject("ContentPane"));
-            }
+            removeButton();
         });
         chengeDialogAcceptButton.setOnAction(event -> {
-            TreeItem<Person> item = treeTableView.getFocusModel().getFocusedItem();
-            Person person = item.getValue();
-            MainElement mainElement = (MainElement) dataForDate.getMap().get(person.id.getValue());
-            ClientElement client = mainElement.getClient();
-            client.setName(nameChengeDialog.getText());
-            client.setSecondName(secondNameChengeDialog.getText());
-            client.setFamily(familyChengeDialog.getText());
-            client.setEmail(emailChengeDialog.getText());
-            client.setComment(commentChengeDialog.getText());
-            client.setFlat(flatChengeDialog.getText());
-            client.setHouse(houseChengeDialog.getText());
-            client.setStreet(streetChengeDialog.getText());
-            client.setTown(townChengeDialog.getText());
-            TreeMap<Long, Element> clientElementTreeMap = new TreeMap<>();
-            clientElementTreeMap.put(client.getId(), client);
-            Time time = Time.valueOf(jfxTimesBoxchengeDialog.getValue() + ":00");
-            TimeElement timeElement = null;
-            for (Element e : allTimes.getMap().values()) {
-                TimeElement element = (TimeElement) e;
-                if (element.getTime().equals(time)) timeElement = element;
-            }
-            String[] tempMasterParam = mastersComboBox.getValue().toString().split(" ");
-            MasterElement tempMaster = new MasterElement(tempMasterParam[1], tempMasterParam[2], tempMasterParam[0], null, null);
-            for (Element m : allMasters.getMap().values()) {
-                MasterElement master = (MasterElement) m;
-                if (master.equals(tempMaster)) tempMaster = master;
-            }
-            Date targetDate = Date.valueOf(targetDatePickerChengeDialog.getValue());
-            mainElement.setDate(targetDate);
-            mainElement.setMaster(tempMaster);
-            mainElement.setTime(timeElement);
-            TreeMap<Long, Element> mainElementTreeMap = new TreeMap<>();
-            mainElementTreeMap.put(mainElement.getId(), mainElement);
-            Message updateMessage = new Message(MessageType.INPUT_DATA, mainElementTreeMap, targetDate, null);
-            System.out.println(updateMessage);
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    chengeDialog.close();
-                }
-            });
-            runConnector(updateMessage);
+            chengeDialogAcceptButton();
         });
         chengeDialogDelButton.setOnAction(event -> {
-            logger.log(Level.INFO, "chengeDialogDelButton.setOnAction");
-            TreeItem<Person> item = treeTableView.getFocusModel().getFocusedItem();
-            Person person = item.getValue();
-            TreeMap<Long, Element> mainElemMap = new TreeMap<>();
-            MainElement mainElement = (MainElement) dataForDate.getMap().get(person.id.getValue());
-            mainElemMap.put(mainElement.getId(), mainElement);
-            Message delMessage = new Message(MessageType.DELETE_DATA, mainElemMap, date, null);
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    chengeDialog.close();
-                }
-            });
-            runConnector(delMessage);
+            chengeDialogDelButton();
         });
 
         addDialogAcceptButton.setOnAction((event) -> {
-            logger.log(Level.INFO, "addDialogAcceptButton.setOnAction");
-            MainElement mainElement = new MainElement();
-            mainElement.setClient(new ClientElement(name.getText(), secondName.getText(), family.getText(), phone.getText(), email.getText(), town.getText(), street.getText(), house.getText(), flat.getText(), comment.getText()));
-            Time time = Time.valueOf(jfxTimesBox.getValue() + ":00");
-            TreeMap<Long, Element> timesMap = new TreeMap<>();
-            for (Element e : allTimes.getMap().values()) {
-                TimeElement element = (TimeElement) e;
-                if (element.getTime().equals(time)) mainElement.setTime(element);
-            }
-            String[] tempMasterParam = addDialogMastersComboBox.getValue().toString().split(" ");
-            MasterElement tempMaster = new MasterElement(tempMasterParam[1], tempMasterParam[2], tempMasterParam[0], null, null);
-            for (Element m : allMasters.getMap().values()) {
-                MasterElement master = (MasterElement) m;
-                if (master.equals(tempMaster)) mainElement.setMaster(master);
-            }
-            mainElement.setDate(Date.valueOf(targetDatePicker.getValue()));
-            TreeMap<Long, Element> map = new TreeMap<Long, Element>();
-            map.put(0L, mainElement);
-            Message registrationMess = new Message(MessageType.INPUT_DATA, map, null, null);
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    addDialog.close();
-                }
-            });
-            runConnector(registrationMess);
+            addDialogAcceptButton();
         });
+    }
+
+    private void datePicker() {
+        logger.log(Level.INFO, "datePicker.setOnAction");
+        date = Date.valueOf(datePicker.getValue());
+        try {
+            init();
+        } catch (Exception e1) {
+            logger.log(Level.WARNING, e1.getMessage());
+        }
+    }
+
+    private void targetDatePicker() {
+        logger.log(Level.INFO, "targetDatePicker.setOnAction");
+        if (targetDatePicker.getValue() != null) {
+            Date date = Date.valueOf(targetDatePicker.getValue());
+            Message message = new Message(MessageType.GET_TIMES_FOR_DATE, date);
+            runModel(message);
+        }
+    }
+
+    private void targetDatePickerChengeDialog() {
+        logger.log(Level.INFO, "targetDatePickerChengeDialog.setOnAction");
+        if (targetDatePickerChengeDialog.getValue() != null) {
+            Date date = Date.valueOf(targetDatePickerChengeDialog.getValue());
+            Message message = new Message(MessageType.GET_TIMES_FOR_DATE, date);
+            runModel(message);
+        }
+    }
+
+    private void addButton() {
+        logger.log(Level.INFO, "addButton.setOnAction");
+        if (allMasters == null) runModel(new Message(MessageType.GET_MASTERS, null));
+        name.setText("");
+        secondName.setText("");
+        family.setText("");
+        phone.setText("");
+        email.setText("");
+        town.setText("");
+        street.setText("");
+        house.setText("");
+        flat.setText("");
+        comment.setText("");
+        addDialogMastersComboBox.setValue("");
+        targetDatePicker.setValue(null);
+        ObservableList<String> strings = jfxTimesBox.getItems();
+        strings.clear();
+        jfxTimesBox.setItems(strings);
+        addDialog.show((StackPane) context.getRegisteredObject("ContentPane"));
+    }
+
+    private void removeButton() {
+        logger.log(Level.INFO, "removeButton.setOnAction");
+        if (allMasters == null) runModel(new Message(MessageType.GET_MASTERS, null));
+        TreeItem<Person> item = treeTableView.getFocusModel().getFocusedItem();
+        if (item != null && item.getValue() != null) {
+            Person person = item.getValue();
+            MainElement mainElement = (MainElement) dataForDate.getMap().get(person.id.getValue());
+            nameChengeDialog.setText(mainElement.getClient().getName());
+            familyChengeDialog.setText(mainElement.getClient().getFamily());
+            secondNameChengeDialog.setText(mainElement.getClient().getSecondName());
+            commentChengeDialog.setText(mainElement.getClient().getComment());
+            emailChengeDialog.setText(mainElement.getClient().getEmail());
+            flatChengeDialog.setText(mainElement.getClient().getFlat());
+            houseChengeDialog.setText(mainElement.getClient().getHouse());
+            phoneChengeDialog.setText(mainElement.getClient().getPhone());
+            streetChengeDialog.setText(mainElement.getClient().getStreet());
+            townChengeDialog.setText(mainElement.getClient().getTown());
+            targetDatePickerChengeDialog.setValue(mainElement.getDate().toLocalDate());
+            String time = mainElement.getTime().getTime().toString();
+            time = time.substring(0, time.length() - 3);
+            jfxTimesBoxchengeDialog.setValue(time);
+            MasterElement master = mainElement.getMaster();
+            if (master != null) {
+                mastersComboBox.setValue(master.getFamily() + " " + master.getName() + " " + master.getSecondName());
+            } else {
+                mastersComboBox.setValue("Мастер");
+            }
+            chengeDialog.show((StackPane) context.getRegisteredObject("ContentPane"));
+        }
+    }
+
+    private void chengeDialogAcceptButton() {
+        TreeItem<Person> item = treeTableView.getFocusModel().getFocusedItem();
+        Person person = item.getValue();
+        MainElement mainElement = (MainElement) dataForDate.getMap().get(person.id.getValue());
+        ClientElement client = mainElement.getClient();
+        client.setName(nameChengeDialog.getText());
+        client.setSecondName(secondNameChengeDialog.getText());
+        client.setFamily(familyChengeDialog.getText());
+        client.setEmail(emailChengeDialog.getText());
+        client.setComment(commentChengeDialog.getText());
+        client.setFlat(flatChengeDialog.getText());
+        client.setHouse(houseChengeDialog.getText());
+        client.setStreet(streetChengeDialog.getText());
+        client.setTown(townChengeDialog.getText());
+        TreeMap<Long, Element> clientElementTreeMap = new TreeMap<>();
+        clientElementTreeMap.put(client.getId(), client);
+        Time time = Time.valueOf(jfxTimesBoxchengeDialog.getValue() + ":00");
+        TimeElement timeElement = null;
+        for (Element e : allTimes.getMap().values()) {
+            TimeElement element = (TimeElement) e;
+            if (element.getTime().equals(time)) timeElement = element;
+        }
+        String[] tempMasterParam = mastersComboBox.getValue().toString().split(" ");
+        MasterElement tempMaster = new MasterElement(tempMasterParam[1], tempMasterParam[2], tempMasterParam[0], null, null);
+        for (Element m : allMasters.getMap().values()) {
+            MasterElement master = (MasterElement) m;
+            if (master.equals(tempMaster)) tempMaster = master;
+        }
+        Date targetDate = Date.valueOf(targetDatePickerChengeDialog.getValue());
+        mainElement.setDate(targetDate);
+        mainElement.setMaster(tempMaster);
+        mainElement.setTime(timeElement);
+        TreeMap<Long, Element> mainElementTreeMap = new TreeMap<>();
+        mainElementTreeMap.put(mainElement.getId(), mainElement);
+        Message updateMessage = new Message(MessageType.INPUT_DATA, mainElementTreeMap, targetDate, null);
+        System.out.println(updateMessage);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                chengeDialog.close();
+            }
+        });
+        runModel(updateMessage);
+    }
+
+    private void chengeDialogDelButton() {
+        logger.log(Level.INFO, "chengeDialogDelButton.setOnAction");
+        TreeItem<Person> item = treeTableView.getFocusModel().getFocusedItem();
+        Person person = item.getValue();
+        TreeMap<Long, Element> mainElemMap = new TreeMap<>();
+        MainElement mainElement = (MainElement) dataForDate.getMap().get(person.id.getValue());
+        mainElemMap.put(mainElement.getId(), mainElement);
+        Message delMessage = new Message(MessageType.DELETE_DATA, mainElemMap, date, null);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                chengeDialog.close();
+            }
+        });
+        runModel(delMessage);
+    }
+
+    private void addDialogAcceptButton() {
+        logger.log(Level.INFO, "addDialogAcceptButton.setOnAction");
+        MainElement mainElement = new MainElement();
+        mainElement.setClient(new ClientElement(name.getText(), secondName.getText(), family.getText(), phone.getText(), email.getText(), town.getText(), street.getText(), house.getText(), flat.getText(), comment.getText()));
+        Time time = Time.valueOf(jfxTimesBox.getValue() + ":00");
+        TreeMap<Long, Element> timesMap = new TreeMap<>();
+        for (Element e : allTimes.getMap().values()) {
+            TimeElement element = (TimeElement) e;
+            if (element.getTime().equals(time)) mainElement.setTime(element);
+        }
+        String[] tempMasterParam = addDialogMastersComboBox.getValue().toString().split(" ");
+        MasterElement tempMaster = new MasterElement(tempMasterParam[1], tempMasterParam[2], tempMasterParam[0], null, null);
+        for (Element m : allMasters.getMap().values()) {
+            MasterElement master = (MasterElement) m;
+            if (master.equals(tempMaster)) mainElement.setMaster(master);
+        }
+        mainElement.setDate(Date.valueOf(targetDatePicker.getValue()));
+        TreeMap<Long, Element> map = new TreeMap<Long, Element>();
+        map.put(0L, mainElement);
+        Message registrationMess = new Message(MessageType.INPUT_DATA, map, null, null);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                addDialog.close();
+            }
+        });
+        runModel(registrationMess);
     }
 
     private void buildTable(Message messageDay) {
@@ -417,16 +452,16 @@ public class MainTableViewController implements Observer {
                 });
                 break;
             case ACCEPTED:
-                runConnector(new Message(MessageType.GET_MAIN_FOR_DATE, date));
+                runModel(new Message(MessageType.GET_MAIN_FOR_DATE, date));
                 break;
         }
     }
 
-    private void runConnector(Message message) {
-        logger.log(Level.INFO, "runConnector " + message.getType());
-        Connector connector = new Connector(message);
-        connector.addObserver(this);
-        new Thread(connector).start();
+    private void runModel(Message message) {
+        logger.log(Level.INFO, "runModel " + message.getType());
+        Model model = new Model(message);
+        model.addObserver(this);
+        new Thread(model).start();
     }
 
     /*
