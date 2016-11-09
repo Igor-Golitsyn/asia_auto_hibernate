@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="H2 - jdbc:h2:tcp://localhost/~/111;AUTO_SERVER=TRUE" uuid="7408b47b-ee8f-44ea-949e-1d3aadfb05c0">
-      <driver-ref>h2.unified</driver-ref>
+    <data-source source="LOCAL" name="MySQL - 111@micro" uuid="6311e2ed-c5ef-425f-906c-205f7fa0e229">
+      <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
-      <configured-by-url>true</configured-by-url>
-      <jdbc-driver>org.h2.Driver</jdbc-driver>
-      <jdbc-url>jdbc:h2:tcp://localhost/~/111;AUTO_SERVER=TRUE</jdbc-url>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://micro:3306/111</jdbc-url>
+      <driver-properties>
+        <property name="autoReconnect" value="true" />
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+        <property name="characterEncoding" value="utf8" />
+        <property name="characterSetResults" value="utf8" />
+        <property name="yearIsDateType" value="false" />
+      </driver-properties>
     </data-source>
   </component>
 </project>

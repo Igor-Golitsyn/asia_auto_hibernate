@@ -1,5 +1,15 @@
 apply plugin: 'java'
 
+// Include dependent libraries in archive.
+jar {
+    manifest {
+        attributes "Main-Class": "com.asia_auto.client.ClientLaunch"
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
 group = 'hibern'
 version = '1.0-SNAPSHOT'
 
@@ -9,8 +19,8 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
-        
-     maven { url "http://repo.maven.apache.org/maven2" }
+
+    maven { url "http://repo.maven.apache.org/maven2" }
 }
 dependencies {
     compile 'org.hibernate:hibernate-entitymanager:5.2.3.Final'
@@ -22,9 +32,9 @@ dependencies {
     compile 'de.jensd:fontawesomefx:8.0.10'
     compile 'com.mortennobel:java-image-scaling:0.8.6'
     compile 'mysql:mysql-connector-java:5.1.32'
-    testCompile group: 'org.testng', name: 'testng', version:'6.9.10'
+    testCompile group: 'org.testng', name: 'testng', version: '6.9.10'
 }
-test{
+test {
     useTestNG();
 }
 compileJava {
