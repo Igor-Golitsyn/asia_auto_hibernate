@@ -28,9 +28,7 @@ import javafx.scene.layout.VBox;
 import javax.annotation.PostConstruct;
 import java.sql.Date;
 import java.sql.Time;
-import java.util.Observable;
-import java.util.Observer;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -389,9 +387,13 @@ public class MainTableViewController implements Observer {
      */
     private ObservableList<String> fullingTimesBox(TreeMap<Long, Element> map, JFXComboBox box) {
         logger.log(Level.INFO, "fullingTimesBox " + map + box.getId());
+        List<Element> elements = new ArrayList<>(map.values());
+        Collections.sort(elements, (o1, o2) -> {
+            return ((TimeElement) o1).getTime().compareTo(((TimeElement) o2).getTime());
+        });
         ObservableList<String> strings = box.getItems();
         strings.clear();
-        for (Element e : map.values()) {
+        for (Element e : elements) {
             TimeElement timeElement = (TimeElement) e;
             String time = timeElement.getTime().toString();
             time = time.substring(0, time.length() - 3);
