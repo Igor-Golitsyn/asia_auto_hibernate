@@ -59,7 +59,7 @@ public class Model extends Observable implements Runnable {
     private Message delData(Message message) {
         MessageType type = MessageType.ACCEPTED;
         for (Element e : message.getMap().values()) {
-            if (!ElementEntityDao.getInstance().deleteElement(e.getClass(), e.getId())) {
+            if (!ElementEntityDao.getInstance().deleteElement(e)) {
                 type = MessageType.ERROR;
                 break;
             }

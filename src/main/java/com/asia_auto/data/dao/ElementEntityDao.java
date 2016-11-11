@@ -1,11 +1,11 @@
 package com.asia_auto.data.dao;
 
+import com.asia_auto.data.entity.Element;
 import com.asia_auto.data.entity.MainElement;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -26,31 +26,6 @@ public class ElementEntityDao {
 
     public static ElementEntityDao getInstance() {
         return SingletonHelper.INSTANCE;
-    }
-
-    public synchronized <T> T getElementById(Class<T> clazz, long id) {
-        EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
-        try {
-            return em.find(clazz, id);
-        } catch (Exception e) {
-            logger.log(Level.WARNING, e.toString());
-            return null;
-        } finally {
-            em.close();
-        }
-    }
-
-    public synchronized <T> List<T> getAllElements(Class<T> clazz) {
-        EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
-        try {
-            TypedQuery<T> namedQuery = em.createNamedQuery(clazz.getSimpleName() + ".getAll", clazz);
-            return namedQuery.getResultList();
-        } catch (Exception e) {
-            logger.log(Level.WARNING, e.toString());
-            return null;
-        } finally {
-            em.close();
-        }
     }
 
     public synchronized List<MainElement> getMainForDate(Date date) {
@@ -82,15 +57,17 @@ public class ElementEntityDao {
         }
     }
 
-    public synchronized <T> boolean deleteElement(Class<T> clazz, long id) {
+    public synchronized boolean deleteElement(Element element) {
         EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
+        Element el = em.find(element.getClass(), element.getId());
         boolean rezult = true;
         try {
             em.getTransaction().begin();
-            em.remove(getElementById(clazz, id));
+            em.remove(el);
             em.getTransaction().commit();
         } catch (Exception e) {
             logger.log(Level.WARNING, e.toString());
+            e.printStackTrace();
             rezult = false;
         }
         em.close();
