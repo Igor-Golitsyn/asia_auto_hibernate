@@ -269,7 +269,7 @@ public class MastersVeiwController implements Observer {
 
     private void runModel(Message message) {
         logger.log(Level.INFO, "runModel " + message.getType());
-        Model model=new Model(message);
+        Model model = new Model(message);
         model.addObserver(this);
         new Thread(model).start();
     }
@@ -324,7 +324,7 @@ public class MastersVeiwController implements Observer {
             if (master.getSmena().equals(smena)) {
                 Image imageUtil = null;
                 try {
-                    imageUtil = ImageLoader.fromBytes(master.getFoto());
+                    imageUtil = ImageLoader.fromBytes(master.getFoto() == null ? imageLoad("") : master.getFoto());
                 } catch (IOException e) {
                     logger.log(Level.WARNING, e.toString());
                 }

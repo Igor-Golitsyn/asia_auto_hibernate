@@ -16,7 +16,6 @@ import java.util.logging.Logger;
  */
 public class ElementEntityDao {
     Logger logger = Logger.getLogger(ElementEntityDao.class.getName());
-    private EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
 
     private ElementEntityDao() {
     }
@@ -30,25 +29,32 @@ public class ElementEntityDao {
     }
 
     public synchronized <T> T getElementById(Class<T> clazz, long id) {
+        EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
         try {
             return em.find(clazz, id);
         } catch (Exception e) {
             logger.log(Level.WARNING, e.toString());
             return null;
+        } finally {
+            em.close();
         }
     }
 
     public synchronized <T> List<T> getAllElements(Class<T> clazz) {
+        EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
         try {
             TypedQuery<T> namedQuery = em.createNamedQuery(clazz.getSimpleName() + ".getAll", clazz);
             return namedQuery.getResultList();
         } catch (Exception e) {
             logger.log(Level.WARNING, e.toString());
             return null;
+        } finally {
+            em.close();
         }
     }
 
     public synchronized List<MainElement> getMainForDate(Date date) {
+        EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
         try {
             Query query = em.createQuery("Select e from MainElement e where e.date = :date");
             query.setParameter("date", date);
@@ -56,10 +62,13 @@ public class ElementEntityDao {
         } catch (Exception e) {
             logger.log(Level.WARNING, e.toString());
             return null;
+        } finally {
+            em.close();
         }
     }
 
     public synchronized <T> T writeElement(T element) {
+        EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
         try {
             em.getTransaction().begin();
             element = em.merge(element);
@@ -68,10 +77,13 @@ public class ElementEntityDao {
         } catch (Exception e) {
             logger.log(Level.WARNING, e.toString());
             return null;
+        } finally {
+            em.close();
         }
     }
 
     public synchronized <T> boolean deleteElement(Class<T> clazz, long id) {
+        EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
         boolean rezult = true;
         try {
             em.getTransaction().begin();
@@ -81,6 +93,7 @@ public class ElementEntityDao {
             logger.log(Level.WARNING, e.toString());
             rezult = false;
         }
+        em.close();
         return rezult;
     }
 }
