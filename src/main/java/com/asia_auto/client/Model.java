@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 public class Model extends Observable implements Runnable {
     private Logger logger = Logger.getLogger(Model.class.getName());
     private Message message;
+    private ElementEntityDao entityDao = new ElementEntityDao();
 
     public Model(Message message) {
         this.message = message;
@@ -59,7 +60,7 @@ public class Model extends Observable implements Runnable {
     private Message delData(Message message) {
         MessageType type = MessageType.ACCEPTED;
         for (Element e : message.getMap().values()) {
-            if (!ElementEntityDao.getInstance().deleteElement(e)) {
+            if (!entityDao.deleteElement(e)) {
                 type = MessageType.ERROR;
                 break;
             }
@@ -71,7 +72,7 @@ public class Model extends Observable implements Runnable {
         MessageType type = MessageType.ACCEPTED;
         TreeMap<Long, Element> map = new TreeMap<>();
         for (Element e : message.getMap().values()) {
-            Element nElem = ElementEntityDao.getInstance().writeElement(e);
+            Element nElem = entityDao.writeElement(e);
             if (nElem.equals(e)) {
                 map.put(nElem.getId(), nElem);
             } else {
@@ -85,7 +86,7 @@ public class Model extends Observable implements Runnable {
 
     private <T extends Element> Message getData(Class<T> clazz, MessageType forResponse) {
         TreeMap<Long, Element> map = new TreeMap<>();
-        List<T> list = ElementEntityDao.getInstance().getAllElements(clazz);
+        List<T> list = entityDao.getAllElements(clazz);
         for (T t : list) {
             map.put(t.getId(), t);
         }
@@ -94,8 +95,8 @@ public class Model extends Observable implements Runnable {
 
     private Message getDataForDate(MessageType forResponse, Date date) {
         TreeMap<Long, Element> map = new TreeMap<>();
-        List<MainElement> mainList = ElementEntityDao.getInstance().getMainForDate(date);
-        List<TimeElement> timeList = ElementEntityDao.getInstance().getAllElements(TimeElement.class);
+        List<MainElement> mainList = entityDao.getMainForDate(date);
+        List<TimeElement> timeList = entityDao.getAllElements(TimeElement.class);
         switch (forResponse) {
             case MAIN_FOR_DATE:
                 for (MainElement mainElement : mainList) {

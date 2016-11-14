@@ -18,18 +18,7 @@ import java.util.logging.Logger;
 public class ElementEntityDao {
     Logger logger = Logger.getLogger(ElementEntityDao.class.getName());
 
-    private ElementEntityDao() {
-    }
-
-    private static class SingletonHelper {
-        private static final ElementEntityDao INSTANCE = new ElementEntityDao();
-    }
-
-    public static ElementEntityDao getInstance() {
-        return SingletonHelper.INSTANCE;
-    }
-
-    public synchronized <T> T getElementById(Class<T> clazz, long id) {
+    public <T> T getElementById(Class<T> clazz, long id) {
         EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
         try {
             return em.find(clazz, id);
@@ -41,7 +30,7 @@ public class ElementEntityDao {
         }
     }
 
-    public synchronized <T> List<T> getAllElements(Class<T> clazz) {
+    public <T> List<T> getAllElements(Class<T> clazz) {
         EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
         try {
             TypedQuery<T> namedQuery = em.createNamedQuery(clazz.getSimpleName() + ".getAll", clazz);
@@ -54,7 +43,7 @@ public class ElementEntityDao {
         }
     }
 
-    public synchronized List<MainElement> getMainForDate(Date date) {
+    public List<MainElement> getMainForDate(Date date) {
         EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
         try {
             Query query = em.createQuery("Select e from MainElement e where e.date = :date");
@@ -68,7 +57,7 @@ public class ElementEntityDao {
         }
     }
 
-    public synchronized <T> T writeElement(T element) {
+    public <T> T writeElement(T element) {
         EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
         try {
             em.getTransaction().begin();
@@ -83,7 +72,7 @@ public class ElementEntityDao {
         }
     }
 
-    public synchronized boolean deleteElement(Element element) {
+    public boolean deleteElement(Element element) {
         EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
         Element el = em.find(element.getClass(), element.getId());
         boolean rezult = true;
