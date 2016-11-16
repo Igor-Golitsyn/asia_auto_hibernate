@@ -253,7 +253,6 @@ public class MastersVeiwController implements Observer {
         byte[] image = null;
         File file = new File("src\\main\\resources\\resources\\1.jpg");
         try {
-            System.out.println(file.getCanonicalPath() + " " + file.isFile());
             if (text == null || text.isEmpty()) text = file.getCanonicalPath();
             image = Files.readAllBytes(Paths.get(text));
         } catch (IOException e) {

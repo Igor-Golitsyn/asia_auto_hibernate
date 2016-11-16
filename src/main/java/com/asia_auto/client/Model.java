@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Observable;
 import java.util.TreeMap;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -25,6 +26,7 @@ public class Model extends Observable implements Runnable {
 
     @Override
     public void run() {
+        logger.log(Level.INFO, "run");
         switch (message.getType()) {
             case GET_CLIENTS:
                 setChanged();
@@ -58,6 +60,7 @@ public class Model extends Observable implements Runnable {
     }
 
     private Message delData(Message message) {
+        logger.log(Level.INFO, "delData");
         MessageType type = MessageType.ACCEPTED;
         for (Element e : message.getMap().values()) {
             if (!entityDao.deleteElement(e)) {
@@ -69,6 +72,7 @@ public class Model extends Observable implements Runnable {
     }
 
     private Message inputData(Message message) {
+        logger.log(Level.INFO, "inputData");
         MessageType type = MessageType.ACCEPTED;
         TreeMap<Long, Element> map = new TreeMap<>();
         for (Element e : message.getMap().values()) {
@@ -85,6 +89,7 @@ public class Model extends Observable implements Runnable {
     }
 
     private <T extends Element> Message getData(Class<T> clazz, MessageType forResponse) {
+        logger.log(Level.INFO, "getData");
         TreeMap<Long, Element> map = new TreeMap<>();
         List<T> list = entityDao.getAllElements(clazz);
         for (T t : list) {
@@ -94,6 +99,7 @@ public class Model extends Observable implements Runnable {
     }
 
     private Message getDataForDate(MessageType forResponse, Date date) {
+        logger.log(Level.INFO, "getDataForDate");
         TreeMap<Long, Element> map = new TreeMap<>();
         List<MainElement> mainList = entityDao.getMainForDate(date);
         List<TimeElement> timeList = entityDao.getAllElements(TimeElement.class);

@@ -218,6 +218,8 @@ public class MainTableViewController implements Observer {
     private void removeButton() {
         logger.log(Level.INFO, "removeButton.setOnAction");
         if (allMasters == null) runModel(new Message(MessageType.GET_MASTERS, null));
+        ObservableList<String> strings = jfxTimesBoxchengeDialog.getItems();
+        strings.clear();
         TreeItem<Person> item = treeTableView.getFocusModel().getFocusedItem();
         if (item != null && item.getValue() != null) {
             Person person = item.getValue();
@@ -281,7 +283,6 @@ public class MainTableViewController implements Observer {
         TreeMap<Long, Element> mainElementTreeMap = new TreeMap<>();
         mainElementTreeMap.put(mainElement.getId(), mainElement);
         Message updateMessage = new Message(MessageType.INPUT_DATA, mainElementTreeMap, targetDate, null);
-        System.out.println(updateMessage);
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -313,7 +314,6 @@ public class MainTableViewController implements Observer {
         MainElement mainElement = new MainElement();
         mainElement.setClient(new ClientElement(name.getText(), secondName.getText(), family.getText(), phone.getText(), email.getText(), town.getText(), street.getText(), house.getText(), flat.getText(), comment.getText()));
         Time time = Time.valueOf(jfxTimesBox.getValue() + ":00");
-        TreeMap<Long, Element> timesMap = new TreeMap<>();
         for (Element e : allTimes.getMap().values()) {
             TimeElement element = (TimeElement) e;
             if (element.getTime().equals(time)) mainElement.setTime(element);
