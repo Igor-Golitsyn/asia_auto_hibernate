@@ -26,6 +26,8 @@ dependencies {
     compile 'org.hibernate:hibernate-entitymanager:5.2.3.Final'
     compile 'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final'
     compile 'org.hibernate:hibernate-core:5.2.3.Final'
+    compile 'org.hibernate:hibernate-c3p0:5.2.5.Final'
+    compile 'c3p0:c3p0:0.9.1.2'
     compile 'com.jfoenix:jfoenix:1.0.0'
     compile 'io.datafx:datafx:8.0b8'
     compile 'io.datafx:flow:8.0b8'

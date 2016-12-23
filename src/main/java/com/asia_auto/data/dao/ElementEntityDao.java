@@ -19,7 +19,7 @@ public class ElementEntityDao {
     Logger logger = Logger.getLogger(ElementEntityDao.class.getName());
 
     public <T> T getElementById(Class<T> clazz, long id) {
-        logger.log(Level.INFO, "getElementById");
+        logger.log(Level.INFO, Thread.currentThread() + "getElementById");
         EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
         logger.log(Level.INFO, "createEntityManager");
         try {
@@ -29,14 +29,13 @@ public class ElementEntityDao {
             return null;
         } finally {
             em.close();
-            logger.log(Level.INFO, "closeEntityManager");
+            logger.log(Level.INFO, Thread.currentThread() + "closeEntityManager");
         }
     }
 
     public <T> List<T> getAllElements(Class<T> clazz) {
-        logger.log(Level.INFO, "getAllElements");
+        logger.log(Level.INFO, Thread.currentThread() + "getAllElements");
         EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
-        logger.log(Level.INFO, "createEntityManager");
         try {
             TypedQuery<T> namedQuery = em.createNamedQuery(clazz.getSimpleName() + ".getAll", clazz);
             return namedQuery.getResultList();
@@ -45,14 +44,13 @@ public class ElementEntityDao {
             return null;
         } finally {
             em.close();
-            logger.log(Level.INFO, "closeEntityManager");
+            logger.log(Level.INFO, Thread.currentThread() + "closeGetAllElements");
         }
     }
 
     public List<MainElement> getMainForDate(Date date) {
-        logger.log(Level.INFO, "getMainForDate");
+        logger.log(Level.INFO, Thread.currentThread() + "getMainForDate");
         EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
-        logger.log(Level.INFO, "createEntityManager");
         try {
             Query query = em.createQuery("Select e from MainElement e where e.date = :date");
             query.setParameter("date", date);
@@ -62,14 +60,13 @@ public class ElementEntityDao {
             return null;
         } finally {
             em.close();
-            logger.log(Level.INFO, "closeEntityManager");
+            logger.log(Level.INFO, Thread.currentThread() + "closeGetMainForDate");
         }
     }
 
     public <T> T writeElement(T element) {
-        logger.log(Level.INFO, "writeElement");
+        logger.log(Level.INFO, Thread.currentThread() + "writeElement");
         EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
-        logger.log(Level.INFO, "createEntityManager");
         try {
             em.getTransaction().begin();
             element = em.merge(element);
@@ -80,14 +77,13 @@ public class ElementEntityDao {
             return null;
         } finally {
             em.close();
-            logger.log(Level.INFO, "closeEntityManager");
+            logger.log(Level.INFO, Thread.currentThread() + "closeWriteElement");
         }
     }
 
     public boolean deleteElement(Element element) {
-        logger.log(Level.INFO, "deleteElement");
+        logger.log(Level.INFO, Thread.currentThread() + "deleteElement");
         EntityManager em = Persistence.createEntityManagerFactory("COLIBRI").createEntityManager();
-        logger.log(Level.INFO, "createEntityManager");
         Element el = em.find(element.getClass(), element.getId());
         boolean rezult = true;
         try {
@@ -99,7 +95,7 @@ public class ElementEntityDao {
             rezult = false;
         }
         em.close();
-        logger.log(Level.INFO, "closeEntityManager");
+        logger.log(Level.INFO, Thread.currentThread() + "closeDeleteElement");
         return rezult;
     }
 }
