@@ -12,20 +12,21 @@
         <class>com.asia_auto.data.entity.ClientElement</class>
         <properties>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-            <property name="hibernate.connection.url" value="jdbc:mysql://polus.ddns.net:3306/111"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://micro:3306/111"/>
             <property name="hibernate.connection.username" value="admin"/>
-            <property name="hibernate.connection.password" value="Patriot1979"/>
+            <property name="hibernate.connection.password" value="1234"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
 
             <property name="hibernate.c3p0.acquire_increment" value="1"/>
-            <property name="hibernate.c3p0.idle_test_period" value="60"/>
+            <property name="hibernate.c3p0.idle_test_period" value="1"/>
             <property name="hibernate.c3p0.min_size" value="1"/>
             <property name="hibernate.c3p0.max_size" value="2"/>
             <property name="hibernate.c3p0.max_statements" value="50"/>
-            <property name="hibernate.c3p0.timeout" value="0"/>
+            <property name="hibernate.c3p0.timeout" value="1"/>
             <property name="hibernate.c3p0.acquireRetryAttempts" value="1"/>
             <property name="hibernate.c3p0.acquireRetryDelay" value="250"/>
+            <property name="hibernate.c3p0.autoCommitOnClose" value="true"/>
         </properties>
     </persistence-unit>
 </persistence>
