@@ -17,11 +17,11 @@ public class ElementEntityDao {
 
     public <T> T getElementById(Class<T> clazz, long id) {
         logger.log(Level.INFO, Thread.currentThread() + "getElementById");
-        EntityManagerFactory factory=Persistence.createEntityManagerFactory("COLIBRI");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("COLIBRI");
         EntityManager em = factory.createEntityManager();
-        em.getTransaction().begin();
         logger.log(Level.INFO, "createEntityManager");
         try {
+            em.getTransaction().begin();
             return em.find(clazz, id);
         } catch (Exception e) {
             logger.log(Level.WARNING, e.toString());
@@ -36,10 +36,10 @@ public class ElementEntityDao {
 
     public <T> List<T> getAllElements(Class<T> clazz) {
         logger.log(Level.INFO, Thread.currentThread() + "getAllElements");
-        EntityManagerFactory factory=Persistence.createEntityManagerFactory("COLIBRI");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("COLIBRI");
         EntityManager em = factory.createEntityManager();
-        em.getTransaction().begin();
         try {
+            em.getTransaction().begin();
             TypedQuery<T> namedQuery = em.createNamedQuery(clazz.getSimpleName() + ".getAll", clazz);
             return namedQuery.getResultList();
         } catch (Exception e) {
@@ -55,10 +55,10 @@ public class ElementEntityDao {
 
     public List<MainElement> getMainForDate(Date date) {
         logger.log(Level.INFO, Thread.currentThread() + "getMainForDate");
-        EntityManagerFactory factory=Persistence.createEntityManagerFactory("COLIBRI");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("COLIBRI");
         EntityManager em = factory.createEntityManager();
-        em.getTransaction().begin();
         try {
+            em.getTransaction().begin();
             Query query = em.createQuery("Select e from MainElement e where e.date = :date");
             query.setParameter("date", date);
             return query.getResultList();
@@ -75,13 +75,11 @@ public class ElementEntityDao {
 
     public <T> T writeElement(T element) {
         logger.log(Level.INFO, Thread.currentThread() + "writeElement");
-        EntityManagerFactory factory=Persistence.createEntityManagerFactory("COLIBRI");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("COLIBRI");
         EntityManager em = factory.createEntityManager();
-        em.getTransaction().begin();
         try {
             em.getTransaction().begin();
             element = em.merge(element);
-            em.getTransaction().commit();
             return element;
         } catch (Exception e) {
             logger.log(Level.WARNING, e.toString());
@@ -96,15 +94,13 @@ public class ElementEntityDao {
 
     public boolean deleteElement(Element element) {
         logger.log(Level.INFO, Thread.currentThread() + "deleteElement");
-        EntityManagerFactory factory=Persistence.createEntityManagerFactory("COLIBRI");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("COLIBRI");
         EntityManager em = factory.createEntityManager();
-        em.getTransaction().begin();
-        Element el = em.find(element.getClass(), element.getId());
         boolean rezult = true;
         try {
             em.getTransaction().begin();
+            Element el = em.find(element.getClass(), element.getId());
             em.remove(el);
-            em.getTransaction().commit();
         } catch (Exception e) {
             logger.log(Level.WARNING, e.toString());
             rezult = false;
